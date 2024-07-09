@@ -1,0 +1,25 @@
+## event
+Each record in each table represents at least one event. 
+
+## case notion
+Use the column that occurs in the most tables and that is not used as timestamp or activity_id as the case notion.
+When a table does not have a column that contains the selected case notion, combine the necessary tables to obtain this case notion.
+Tables can be joined on attributes that have the exact same name. Use the attribute that holds the case notion as the case_id.
+
+## activity label
+Never use a column as activity_id that contains NUMERIC values or a column that is used to join with another table.
+Columns that mostly contain TEXT values are candidates for the activity_id.
+If multiple columns exist with TEXT values, use the column with the most detail. Base your selection on common knowledge related to elements of the name of the column. 
+When a table has exactly one column containing a datetime format and no columns having a TEXT format, 
+    then and only then, the name of the table is the value of the activity_id column.
+
+When a table has at least two columns containing a datetime format, then each of these datetime values is an event.
+When a table has at least two columns containing a datetime format,
+    then and only then, for each of these columns concatenate the name of the table and the name of the column and use this as the value in the activity_id column. 
+
+## timestamp
+A record in the event log must always have a timestamp value that is not empty and not NULL.
+Use for the timestamps the time format that occurs in the tables where the value originates from.
+
+## event log
+Remove duplicate records from the event log.

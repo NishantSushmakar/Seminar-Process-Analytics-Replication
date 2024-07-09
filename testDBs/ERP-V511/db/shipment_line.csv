@@ -1,0 +1,6 @@
+id,shipment,order_line,quantity
+sl1,s1,ol1,1
+sl2,s2,ol1,1
+sl3,s2,ol2,3
+sl4,s3,ol3,3
+sl5,s3,ol4,2

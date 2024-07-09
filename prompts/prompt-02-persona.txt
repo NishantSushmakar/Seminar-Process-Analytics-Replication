@@ -1,0 +1,3 @@
+Considering the input database, act as a Process Mining Specialist that is knowledgeable about event log extraction. 
+
+Write an SQL statement that generates an event log from this database with the following columns: case_id, activity_id, timestamp.

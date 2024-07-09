@@ -1,0 +1,6 @@
+case_id,activity_id,timestamp
+o1,order,2017-08-11 10:33:37
+o1,shipment,2017-08-14 11:36:35
+o1,shipment,2017-08-16 14:15:31
+o2,order,2017-08-13 16:18:15
+o2,shipment,2017-08-19 13:22:04

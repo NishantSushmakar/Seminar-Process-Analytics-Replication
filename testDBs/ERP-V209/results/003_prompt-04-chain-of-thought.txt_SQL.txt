@@ -1,0 +1,17 @@
+SELECT 
+    "element_relation"."id" AS "case_id", 
+    'order' AS "activity_id", 
+    CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM 
+    "element_relation"
+JOIN 
+    "order" ON "element_relation"."order" = "order"."id"
+UNION ALL
+SELECT 
+    "element_relation"."id" AS "case_id", 
+    'invoice' AS "activity_id", 
+    CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp"
+FROM 
+    "element_relation"
+JOIN 
+    "invoice" ON "element_relation"."invoice" = "invoice"."id";

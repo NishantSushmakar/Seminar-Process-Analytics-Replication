@@ -1,0 +1,8 @@
+SELECT "CaseID" AS "case_id", 'order' AS "activity_id", CAST("EventDateTime" AS VARCHAR) AS "timestamp"
+FROM "T200"
+WHERE "EventID" = 'order'
+UNION ALL
+SELECT "CaseID" AS "case_id", 'payment' AS "activity_id", CAST("EventDateTime" AS VARCHAR) AS "timestamp"
+FROM "T200"
+WHERE "EventID" = 'payment'
+ORDER BY "case_id", "timestamp";

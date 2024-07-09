@@ -1,0 +1,15 @@
+Each record in each table represents at least one event.
+
+From the T100 table, the T200 table and the T300 table use the EventID column as activity_id.
+
+When a table contains one column containing a datetime format and no other column that contains the name of the event, 
+    then and only then concatenate the name of the table and the name of the column and use this as the value in the activity_id column.
+
+When a table contains multiple columns containing a datetime format, then each of these datetime values is an event.
+When a table contains multiple columns containing a datetime format,
+    for each of these columns concatenate the name of the table and the the name of the column, adding an underscore, and use this as the value in the activity_id column. 
+
+Use the column that occurs in the most tables and that is not used as timestamp or activity_id as the case notion.
+When a table does not have a column that contains the selected case notion, combine the necessary tables to obtain this case notion.
+
+If a value in the table is empty or NULL leave out the whole record.

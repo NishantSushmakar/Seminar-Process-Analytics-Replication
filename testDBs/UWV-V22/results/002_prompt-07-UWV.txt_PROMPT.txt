@@ -1,0 +1,24 @@
+Consider the following db schema: TABLE T200:
+CREATE TABLE "T200" ("CaseID" TEXT, "EventDateTime" DATETIME, "EventID" TEXT, PRIMARY KEY ("CaseID", "EventDateTime", "EventID"));
+
+TABLE T300:
+CREATE TABLE "T300" ("CaseID" TEXT, "EventDate" TEXT, "EventID" TEXT, "Attribute_301" TEXT, PRIMARY KEY ("CaseID", "EventID"));
+
+TABLE T500:
+CREATE TABLE "T500" ("SessionID" TEXT, "CaseID" TEXT, "EventID_501" DATETIME, "EventID_502" DATETIME, "EventID_503" DATETIME, "EventID_504" DATETIME, "EventID_505" DATETIME, "EventID_506" DATETIME, "EventID_507" DATETIME, "Attribute_510" TEXT, PRIMARY KEY ("CaseID"));
+Each record in each table represents at least one event.
+
+From the T100 table, the T200 table and the T300 table use the EventID column as activity_id.
+
+When a table contains one column containing a datetime format and no other column that contains the name of the event, 
+    then and only then concatenate the name of the table and the name of the column and use this as the value in the activity_id column.
+
+When a table contains multiple columns containing a datetime format, then each of these datetime values is an event.
+When a table contains multiple columns containing a datetime format,
+    for each of these columns concatenate the name of the table and the the name of the column, adding an underscore, and use this as the value in the activity_id column. 
+
+Use the column that occurs in the most tables and that is not used as timestamp or activity_id as the case notion.
+When a table does not have a column that contains the selected case notion, combine the necessary tables to obtain this case notion.
+
+If a value in the table is empty or NULL leave out the whole record.
+Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

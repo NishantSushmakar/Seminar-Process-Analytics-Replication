@@ -1,0 +1,39 @@
+SELECT DISTINCT
+    "customer"."id" AS "case_id",
+    "customer"."name" AS "activity_id",
+    CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM
+    "customer"
+JOIN
+    "order" ON "customer"."id" = "order"."customer"
+UNION
+SELECT DISTINCT
+    "customer"."id" AS "case_id",
+    "invoice"."id" AS "activity_id",
+    CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp"
+FROM
+    "customer"
+JOIN
+    "invoice" ON "customer"."id" = "invoice"."customer"
+UNION
+SELECT DISTINCT
+    "customer"."id" AS "case_id",
+    "element_relation"."id" AS "activity_id",
+    CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM
+    "customer"
+JOIN
+    "order" ON "customer"."id" = "order"."customer"
+JOIN
+    "element_relation" ON "order"."id" = "element_relation"."order"
+UNION
+SELECT DISTINCT
+    "customer"."id" AS "case_id",
+    "element_relation"."id" AS "activity_id",
+    CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp"
+FROM
+    "customer"
+JOIN
+    "invoice" ON "customer"."id" = "invoice"."customer"
+JOIN
+    "element_relation" ON "invoice"."id" = "element_relation"."invoice";

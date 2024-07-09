@@ -1,0 +1,26 @@
+SELECT DISTINCT
+    "customer"."id" AS "case_id",
+    "activity"."activity_id" AS "activity_id",
+    "activity"."timestamp" AS "timestamp"
+FROM
+    (
+        SELECT
+            "id" AS "case_id",
+            "name" AS "activity_id",
+            NULL AS "timestamp"
+        FROM "customer"
+        UNION ALL
+        SELECT
+            "customer" AS "case_id",
+            'order_creation_date' AS "activity_id",
+            "creation_date" AS "timestamp"
+        FROM "order"
+        UNION ALL
+        SELECT
+            "customer" AS "case_id",
+            'shipment_creation_date' AS "activity_id",
+            "creation_date" AS "timestamp"
+        FROM "shipment"
+    ) AS "activity"
+JOIN "customer" ON "customer"."id" = "activity"."case_id"
+WHERE "activity"."timestamp" IS NOT NULL;

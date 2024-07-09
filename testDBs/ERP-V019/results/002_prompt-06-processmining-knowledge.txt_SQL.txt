@@ -1,0 +1,24 @@
+SELECT DISTINCT 
+    "customer"."id" AS "case_id", 
+    "activity_id", 
+    CAST("timestamp" AS VARCHAR) AS "timestamp"
+FROM (
+    SELECT 
+        "customer"."id", 
+        "customer"."name" AS "activity_id", 
+        "customer"."address" AS "timestamp"
+    FROM "customer"
+    UNION ALL
+    SELECT 
+        "order"."customer" AS "id", 
+        'order' AS "activity_id", 
+        "order"."creation_date" AS "timestamp"
+    FROM "order"
+    UNION ALL
+    SELECT 
+        "shipment"."customer" AS "id", 
+        'shipment' AS "activity_id", 
+        "shipment"."creation_date" AS "timestamp"
+    FROM "shipment"
+) AS events
+JOIN "customer" ON "events"."id" = "customer"."id";

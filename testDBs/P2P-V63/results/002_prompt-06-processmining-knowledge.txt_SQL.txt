@@ -1,0 +1,107 @@
+SELECT DISTINCT
+    COALESCE("click"."customer_id", "order"."id", "invoice"."order_id", "shipment"."order_id", "payment"."invoice_id") AS "case_id",
+    CASE
+        WHEN "click"."id" IS NOT NULL THEN "click"."mouse_state"
+        WHEN "configuration"."id" IS NOT NULL THEN "configuration"."config_prop"
+        WHEN "invoice"."id" IS NOT NULL THEN 'invoice'
+        WHEN "order"."id" IS NOT NULL THEN 'order'
+        WHEN "payment"."id" IS NOT NULL THEN 'payment'
+        WHEN "shipment"."id" IS NOT NULL THEN 'shipment'
+    END AS "activity_id",
+    COALESCE("click"."creation_date", "configuration"."date", "invoice"."creation_date", "order"."creation_date", "payment"."creation_date", "shipment"."creation_date") AS "timestamp"
+FROM "click"
+LEFT JOIN "order" ON "click"."customer_id" = "order"."id"
+LEFT JOIN "invoice" ON "order"."id" = "invoice"."order_id"
+LEFT JOIN "shipment" ON "order"."id" = "shipment"."order_id"
+LEFT JOIN "payment" ON "invoice"."id" = "payment"."invoice_id"
+LEFT JOIN "configuration" ON "click"."customer_id" = "configuration"."id"
+UNION
+SELECT DISTINCT
+    COALESCE("click"."customer_id", "order"."id", "invoice"."order_id", "shipment"."order_id", "payment"."invoice_id") AS "case_id",
+    CASE
+        WHEN "click"."id" IS NOT NULL THEN "click"."mouse_state"
+        WHEN "configuration"."id" IS NOT NULL THEN "configuration"."config_prop"
+        WHEN "invoice"."id" IS NOT NULL THEN 'invoice'
+        WHEN "order"."id" IS NOT NULL THEN 'order'
+        WHEN "payment"."id" IS NOT NULL THEN 'payment'
+        WHEN "shipment"."id" IS NOT NULL THEN 'shipment'
+    END AS "activity_id",
+    COALESCE("click"."creation_date", "configuration"."date", "invoice"."creation_date", "order"."creation_date", "payment"."creation_date", "shipment"."creation_date") AS "timestamp"
+FROM "order"
+LEFT JOIN "click" ON "order"."id" = "click"."customer_id"
+LEFT JOIN "invoice" ON "order"."id" = "invoice"."order_id"
+LEFT JOIN "shipment" ON "order"."id" = "shipment"."order_id"
+LEFT JOIN "payment" ON "invoice"."id" = "payment"."invoice_id"
+LEFT JOIN "configuration" ON "order"."id" = "configuration"."id"
+UNION
+SELECT DISTINCT
+    COALESCE("click"."customer_id", "order"."id", "invoice"."order_id", "shipment"."order_id", "payment"."invoice_id") AS "case_id",
+    CASE
+        WHEN "click"."id" IS NOT NULL THEN "click"."mouse_state"
+        WHEN "configuration"."id" IS NOT NULL THEN "configuration"."config_prop"
+        WHEN "invoice"."id" IS NOT NULL THEN 'invoice'
+        WHEN "order"."id" IS NOT NULL THEN 'order'
+        WHEN "payment"."id" IS NOT NULL THEN 'payment'
+        WHEN "shipment"."id" IS NOT NULL THEN 'shipment'
+    END AS "activity_id",
+    COALESCE("click"."creation_date", "configuration"."date", "invoice"."creation_date", "order"."creation_date", "payment"."creation_date", "shipment"."creation_date") AS "timestamp"
+FROM "invoice"
+LEFT JOIN "order" ON "invoice"."order_id" = "order"."id"
+LEFT JOIN "click" ON "order"."id" = "click"."customer_id"
+LEFT JOIN "shipment" ON "order"."id" = "shipment"."order_id"
+LEFT JOIN "payment" ON "invoice"."id" = "payment"."invoice_id"
+LEFT JOIN "configuration" ON "invoice"."order_id" = "configuration"."id"
+UNION
+SELECT DISTINCT
+    COALESCE("click"."customer_id", "order"."id", "invoice"."order_id", "shipment"."order_id", "payment"."invoice_id") AS "case_id",
+    CASE
+        WHEN "click"."id" IS NOT NULL THEN "click"."mouse_state"
+        WHEN "configuration"."id" IS NOT NULL THEN "configuration"."config_prop"
+        WHEN "invoice"."id" IS NOT NULL THEN 'invoice'
+        WHEN "order"."id" IS NOT NULL THEN 'order'
+        WHEN "payment"."id" IS NOT NULL THEN 'payment'
+        WHEN "shipment"."id" IS NOT NULL THEN 'shipment'
+    END AS "activity_id",
+    COALESCE("click"."creation_date", "configuration"."date", "invoice"."creation_date", "order"."creation_date", "payment"."creation_date", "shipment"."creation_date") AS "timestamp"
+FROM "shipment"
+LEFT JOIN "order" ON "shipment"."order_id" = "order"."id"
+LEFT JOIN "click" ON "order"."id" = "click"."customer_id"
+LEFT JOIN "invoice" ON "order"."id" = "invoice"."order_id"
+LEFT JOIN "payment" ON "invoice"."id" = "payment"."invoice_id"
+LEFT JOIN "configuration" ON "shipment"."order_id" = "configuration"."id"
+UNION
+SELECT DISTINCT
+    COALESCE("click"."customer_id", "order"."id", "invoice"."order_id", "shipment"."order_id", "payment"."invoice_id") AS "case_id",
+    CASE
+        WHEN "click"."id" IS NOT NULL THEN "click"."mouse_state"
+        WHEN "configuration"."id" IS NOT NULL THEN "configuration"."config_prop"
+        WHEN "invoice"."id" IS NOT NULL THEN 'invoice'
+        WHEN "order"."id" IS NOT NULL THEN 'order'
+        WHEN "payment"."id" IS NOT NULL THEN 'payment'
+        WHEN "shipment"."id" IS NOT NULL THEN 'shipment'
+    END AS "activity_id",
+    COALESCE("click"."creation_date", "configuration"."date", "invoice"."creation_date", "order"."creation_date", "payment"."creation_date", "shipment"."creation_date") AS "timestamp"
+FROM "payment"
+LEFT JOIN "invoice" ON "payment"."invoice_id" = "invoice"."id"
+LEFT JOIN "order" ON "invoice"."order_id" = "order"."id"
+LEFT JOIN "click" ON "order"."id" = "click"."customer_id"
+LEFT JOIN "shipment" ON "order"."id" = "shipment"."order_id"
+LEFT JOIN "configuration" ON "payment"."invoice_id" = "configuration"."id"
+UNION
+SELECT DISTINCT
+    COALESCE("click"."customer_id", "order"."id", "invoice"."order_id", "shipment"."order_id", "payment"."invoice_id") AS "case_id",
+    CASE
+        WHEN "click"."id" IS NOT NULL THEN "click"."mouse_state"
+        WHEN "configuration"."id" IS NOT NULL THEN "configuration"."config_prop"
+        WHEN "invoice"."id" IS NOT NULL THEN 'invoice'
+        WHEN "order"."id" IS NOT NULL THEN 'order'
+        WHEN "payment"."id" IS NOT NULL THEN 'payment'
+        WHEN "shipment"."id" IS NOT NULL THEN 'shipment'
+    END AS "activity_id",
+    COALESCE("click"."creation_date", "configuration"."date", "invoice"."creation_date", "order"."creation_date", "payment"."creation_date", "shipment"."creation_date") AS "timestamp"
+FROM "configuration"
+LEFT JOIN "click" ON "configuration"."id" = "click"."customer_id"
+LEFT JOIN "order" ON "configuration"."id" = "order"."id"
+LEFT JOIN "invoice" ON "configuration"."id" = "invoice"."order_id"
+LEFT JOIN "shipment" ON "configuration"."id" = "shipment"."order_id"
+LEFT JOIN "payment" ON "configuration"."id" = "payment"."invoice_id"

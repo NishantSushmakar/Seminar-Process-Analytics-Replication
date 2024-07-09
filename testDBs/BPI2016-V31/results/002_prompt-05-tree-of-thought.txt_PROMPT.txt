@@ -1,0 +1,21 @@
+Consider the following db schema: TABLE BPI2016_Clicks_Logged_In:
+CREATE TABLE "BPI2016_Clicks_Logged_In" ("CustomerID" TEXT, "AgeCategory" TEXT, "Gender" TEXT, "Office_U" TEXT, "Office_W" TEXT, "SessionID" TEXT, "IPID" TEXT, "ClickTimestamp" DATETIME, "VHOST" TEXT, "URL_FILE" TEXT, "PAGE_NAME" TEXT, "REF_URL_category" TEXT, "page_load_error" TEXT, "page_action_detail" TEXT, "tip" TEXT, "service_detail" TEXT, "xps_info" TEXT, "page_action_detail_EN" TEXT, "service_detail_EN" TEXT, "tip_EN" TEXT, PRIMARY KEY ("CustomerID", "ClickTimestamp"));
+
+TABLE BPI2016_Clicks_NOT_Logged_In:
+CREATE TABLE "BPI2016_Clicks_NOT_Logged_In" ("SessionID" TEXT, "IPID" TEXT, "ClickTimestamp" DATETIME, "VHOST" TEXT, "URL_FILE" TEXT, "PAGE_NAME" TEXT, "REF_URL_category" TEXT, "page_load_error" TEXT, "page_action_detail" TEXT, "tip" TEXT, "service_detail" TEXT, "xps_info" TEXT, "page_action_detail_EN" TEXT, "service_detail_EN" TEXT, "tip_EN" TEXT, PRIMARY KEY ("SessionID", "ClickTimestamp"));
+
+TABLE BPI2016_Complaints:
+CREATE TABLE "BPI2016_Complaints" ("CustomerID" TEXT, "AgeCategory" TEXT, "Gender" TEXT, "Office_U" TEXT, "Office_W" TEXT, "ComplaintDossierID" TEXT, "ComplaintID" TEXT, "ComplaintDate" DATETIME, "ContactChannelID" TEXT, "ComplaintThemeID" TEXT, "ComplaintSubthemeID" TEXT, "ComplaintTopicID" TEXT, "ComplaintTheme" TEXT, "ComplaintSubtheme" TEXT, "ComplaintTopic" TEXT, "ComplaintTheme_EN" TEXT, "ComplaintSubtheme_EN" TEXT, "ComplaintTopic_EN" TEXT, PRIMARY KEY ("CustomerID"));
+
+TABLE BPI2016_Questions:
+CREATE TABLE "BPI2016_Questions" ("CustomerID" TEXT, "AgeCategory" TEXT, "Gender" TEXT, "Office_U" TEXT, "Office_W" TEXT, "QuestionTimestampStart" DATETIME, "QuestionTimestampEnd" TEXT, "QuestionThemeID" TEXT, "QuestionSubthemeID" TEXT, "QuestionTopicID" TEXT, "QuestionTheme" TEXT, "QuestionSubtheme" TEXT, "QuestionTopic" TEXT, "QuestionTheme_EN" TEXT, "QuestionSubtheme_EN" TEXT, "QuestionTopic_EN" TEXT, PRIMARY KEY ("CustomerID", "QuestionTimestampStart"));
+
+TABLE BPI2016_Werkmap_Messages:
+CREATE TABLE "BPI2016_Werkmap_Messages" ("CustomerID" TEXT, "AgeCategory" TEXT, "Gender" TEXT, "Office_U" TEXT, "Office_W" TEXT, "WerkmapTimestamp" DATETIME, "EventType" TEXT, "HandlingChannelID" TEXT, PRIMARY KEY ("CustomerID", "WerkmapTimestamp"));
+Consider three experts are collaboratively answering a request using a tree of thoughts method. 
+Each one of the three experts will share their thought process in detail, taking into account the previous thoughts of others and admitting any errors. 
+They will iteratively refine and expand upon each others' ideas, giving credit where it's due. 
+The process continues until a conclusive answer to the request is found. The request is the following. 
+
+Considering the input database, write an SQL statement that generates an event log from this database with the following columns: case_id, activity_id, timestamp.
+Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

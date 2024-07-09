@@ -1,0 +1,5 @@
+case_id,activity_id,timestamp
+o1,order,2017-08-11 10:33:37
+o2,order,2017-08-13 16:18:15
+p1,payment,2017-08-21 16:26:13
+p2,payment,2017-08-26 14:53:49

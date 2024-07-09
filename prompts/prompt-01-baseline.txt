@@ -1,0 +1,1 @@
+Considering the input database, write an SQL statement that generates an event log from this database with the following columns: case_id, activity_id, timestamp. 

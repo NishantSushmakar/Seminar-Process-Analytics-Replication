@@ -1,0 +1,11 @@
+SELECT 
+    "order"."id" AS "case_id", 
+    'order' AS "activity_id", 
+    CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "order"
+UNION ALL
+SELECT 
+    "payment"."id" AS "case_id", 
+    'payment' AS "activity_id", 
+    CAST("payment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "payment";

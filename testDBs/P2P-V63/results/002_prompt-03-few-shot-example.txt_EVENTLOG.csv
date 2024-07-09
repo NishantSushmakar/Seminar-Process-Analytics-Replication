@@ -1,0 +1,18 @@
+case_id,activity_id,timestamp
+o1,order,2017-08-11 10:33:37
+c1,click,2017-08-11 10:33:37
+c1,configuration,2017-08-11 10:33:37
+o2,order,2017-08-13 16:18:15
+c1,click,2017-08-13 16:18:15
+c2,configuration,2017-08-13 16:18:15
+o3,order,2017-08-15 22:02:53
+c2,click,2017-08-15 22:02:53
+c3,configuration,2017-08-15 22:02:53
+o4,order,2017-08-17 02:18:12
+c2,click,2017-08-17 16:18:15
+c4,configuration,2017-08-17 16:18:15
+i1,payment,2017-08-21 16:26:13
+i3,payment,2017-08-23 18:42:09
+o1,shipment,2017-08-24 11:36:35
+i4,payment,2017-08-25 20:52:10
+o4,shipment,2017-08-30 09:45:31

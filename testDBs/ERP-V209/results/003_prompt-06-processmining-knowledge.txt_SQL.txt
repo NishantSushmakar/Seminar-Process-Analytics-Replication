@@ -1,0 +1,26 @@
+SELECT DISTINCT
+    "customer"."id" AS "case_id",
+    "activity"."activity_id" AS "activity_id",
+    "activity"."timestamp" AS "timestamp"
+FROM
+    (
+        SELECT
+            "order"."customer" AS "case_id",
+            'order_creation_date' AS "activity_id",
+            CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        FROM "order"
+        UNION ALL
+        SELECT
+            "invoice"."customer" AS "case_id",
+            'invoice_creation_date' AS "activity_id",
+            CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp"
+        FROM "invoice"
+        UNION ALL
+        SELECT
+            "element_relation"."order" AS "case_id",
+            'element_relation' AS "activity_id",
+            '' AS "timestamp"
+        FROM "element_relation"
+    ) AS "activity"
+JOIN "customer" ON "customer"."id" = "activity"."case_id"
+WHERE "activity"."timestamp" IS NOT NULL AND "activity"."timestamp" <> ''

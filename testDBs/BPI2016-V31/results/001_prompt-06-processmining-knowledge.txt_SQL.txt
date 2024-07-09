@@ -1,0 +1,31 @@
+SELECT DISTINCT 
+    "CustomerID" AS "case_id", 
+    "page_action_detail" AS "activity_id", 
+    CAST("ClickTimestamp" AS VARCHAR) AS "timestamp"
+FROM "BPI2016_Clicks_Logged_In"
+UNION
+SELECT DISTINCT 
+    "CustomerID" AS "case_id", 
+    "page_action_detail" AS "activity_id", 
+    CAST("ClickTimestamp" AS VARCHAR) AS "timestamp"
+FROM "BPI2016_Clicks_NOT_Logged_In" 
+JOIN "BPI2016_Clicks_Logged_In" 
+ON "BPI2016_Clicks_NOT_Logged_In"."SessionID" = "BPI2016_Clicks_Logged_In"."SessionID"
+UNION
+SELECT DISTINCT 
+    "CustomerID" AS "case_id", 
+    "ComplaintTheme" AS "activity_id", 
+    CAST("ComplaintDate" AS VARCHAR) AS "timestamp"
+FROM "BPI2016_Complaints"
+UNION
+SELECT DISTINCT 
+    "CustomerID" AS "case_id", 
+    "QuestionTheme" AS "activity_id", 
+    CAST("QuestionTimestampStart" AS VARCHAR) AS "timestamp"
+FROM "BPI2016_Questions"
+UNION
+SELECT DISTINCT 
+    "CustomerID" AS "case_id", 
+    "EventType" AS "activity_id", 
+    CAST("WerkmapTimestamp" AS VARCHAR) AS "timestamp"
+FROM "BPI2016_Werkmap_Messages";

@@ -1,0 +1,20 @@
+SELECT DISTINCT
+    "order"."id" AS "case_id",
+    "activity"."activity_id" AS "activity_id",
+    "activity"."timestamp" AS "timestamp"
+FROM (
+    SELECT "id" AS "case_id", "mouse_state" AS "activity_id", "creation_date" AS "timestamp" FROM "click"
+    UNION ALL
+    SELECT "id" AS "case_id", "config_prop" AS "activity_id", "date" AS "timestamp" FROM "configuration"
+    UNION ALL
+    SELECT "order_id" AS "case_id", 'invoice' AS "activity_id", "creation_date" AS "timestamp" FROM "invoice"
+    UNION ALL
+    SELECT "id" AS "case_id", 'order' AS "activity_id", "creation_date" AS "timestamp" FROM "order"
+    UNION ALL
+    SELECT "invoice"."order_id" AS "case_id", 'payment' AS "activity_id", "payment"."creation_date" AS "timestamp"
+    FROM "payment"
+    JOIN "invoice" ON "payment"."invoice_id" = "invoice"."id"
+    UNION ALL
+    SELECT "order_id" AS "case_id", 'shipment' AS "activity_id", "creation_date" AS "timestamp" FROM "shipment"
+) AS "activity"
+JOIN "order" ON "activity"."case_id" = "order"."id";

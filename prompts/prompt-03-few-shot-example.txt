@@ -1,0 +1,34 @@
+BEGIN Example.
+
+Next, I show you an example of how an event log looks like when extracted from a database with two tables.
+
+BEGIN Database.
+
+Order
+id,creation_date
+1,2020-02-01
+2,2020-06-01
+3,2020-10-01
+
+Payment
+id,id_order,creation_date
+1,1,2020-02-02
+2,3,2020-10-02
+
+END Database.
+
+BEGIN Generated event log.
+case_id, activity_id, timestamp
+1,order,2020-02-01
+1,payment,2020-02-02
+2,order,2020-06-01
+3,order,2020-10-01
+3,payment,2020-10-02
+END Generated event log.
+
+END Example.
+
+Considering the input database, write an SQL statement that generates an event log from this database with the following columns: case_id, activity_id, timestamp. 
+
+
+

@@ -1,0 +1,50 @@
+SELECT DISTINCT
+    COALESCE("order"."customer", "invoice"."customer", "shipment"."customer") AS "case_id",
+    CASE
+        WHEN "order"."id" IS NOT NULL THEN 'order'
+        WHEN "invoice"."id" IS NOT NULL THEN 'invoice'
+        WHEN "shipment"."id" IS NOT NULL THEN 'shipment'
+        WHEN "payment"."id" IS NOT NULL THEN 'payment'
+        WHEN "shipment_line"."id" IS NOT NULL THEN 'shipment_line'
+        WHEN "order_line"."id" IS NOT NULL THEN 'order_line'
+        WHEN "payment_line"."id" IS NOT NULL THEN 'payment_line'
+        WHEN "element_relation"."id" IS NOT NULL THEN 'element_relation'
+    END AS "activity_id",
+    COALESCE("order"."creation_date", "invoice"."creation_date", "shipment"."creation_date", "payment"."creation_date") AS "timestamp"
+FROM
+    "order"
+    LEFT JOIN "invoice" ON "order"."customer" = "invoice"."customer"
+    LEFT JOIN "shipment" ON "order"."customer" = "shipment"."customer"
+    LEFT JOIN "payment_line" ON "invoice"."id" = "payment_line"."invoice"
+    LEFT JOIN "payment" ON "payment_line"."payment" = "payment"."id"
+    LEFT JOIN "shipment_line" ON "order"."id" = "shipment_line"."order_line"
+    LEFT JOIN "order_line" ON "order"."id" = "order_line"."order"
+    LEFT JOIN "element_relation" ON "order"."id" = "element_relation"."order" OR "invoice"."id" = "element_relation"."invoice"
+UNION
+SELECT DISTINCT
+    COALESCE("order"."customer", "invoice"."customer", "shipment"."customer") AS "case_id",
+    'order_creation_date' AS "activity_id",
+    "order"."creation_date" AS "timestamp"
+FROM
+    "order"
+UNION
+SELECT DISTINCT
+    COALESCE("order"."customer", "invoice"."customer", "shipment"."customer") AS "case_id",
+    'invoice_creation_date' AS "activity_id",
+    "invoice"."creation_date" AS "timestamp"
+FROM
+    "invoice"
+UNION
+SELECT DISTINCT
+    COALESCE("order"."customer", "invoice"."customer", "shipment"."customer") AS "case_id",
+    'shipment_creation_date' AS "activity_id",
+    "shipment"."creation_date" AS "timestamp"
+FROM
+    "shipment"
+UNION
+SELECT DISTINCT
+    COALESCE("order"."customer", "invoice"."customer", "shipment"."customer") AS "case_id",
+    'payment_creation_date' AS "activity_id",
+    "payment"."creation_date" AS "timestamp"
+FROM
+    "payment";

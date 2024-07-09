@@ -1,0 +1,29 @@
+SELECT 
+    "customer"."id" AS "case_id", 
+    'Order Created' AS "activity_id", 
+    CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "order"
+JOIN "customer" ON "order"."customer" = "customer"."id"
+UNION ALL
+SELECT 
+    "customer"."id" AS "case_id", 
+    'Shipment Created' AS "activity_id", 
+    CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "shipment"
+JOIN "customer" ON "shipment"."customer" = "customer"."id"
+UNION ALL
+SELECT 
+    "customer"."id" AS "case_id", 
+    'Order Line Created' AS "activity_id", 
+    CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "order_line"
+JOIN "order" ON "order_line"."order" = "order"."id"
+JOIN "customer" ON "order"."customer" = "customer"."id"
+UNION ALL
+SELECT 
+    "customer"."id" AS "case_id", 
+    'Shipment Line Created' AS "activity_id", 
+    CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "shipment_line"
+JOIN "shipment" ON "shipment_line"."shipment" = "shipment"."id"
+JOIN "customer" ON "shipment"."customer" = "customer"."id";

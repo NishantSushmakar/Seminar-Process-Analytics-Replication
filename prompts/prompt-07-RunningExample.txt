@@ -1,0 +1,11 @@
+Each record in each table represents at least one event.
+Never use the configuration table and never use the click table.
+
+If a table contains one timestamp attribute and no other attribute with a textual format, then the activity_id is equal to the table name.
+If a table contains multiple timestamp attributes, then each of these attributes is related to an event with the activity_id equal to the attribute name.
+
+Use the id of the order as the case notion.
+if the payment table is present in the db schema, then and only then, join the payment table with the invoice table and use the order_id from the invoice_table as the case_id for the events from the payment table.
+Use the name of the table as the activity_id.
+
+When a table does not have an attribute that contains the selected case notion, combine the necessary tables to obtain this case notion.

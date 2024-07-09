@@ -1,0 +1,19 @@
+SELECT 
+    "CaseID" AS "case_id", 
+    "EventID" AS "activity_id", 
+    CAST("EventDateTime" AS VARCHAR) AS "timestamp"
+FROM 
+    "T200"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventDateTime" IS NOT NULL AND "EventID" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "CaseID" AS "case_id", 
+    "EventID" AS "activity_id", 
+    CAST("EventDate" AS VARCHAR) AS "timestamp"
+FROM 
+    "T300"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventDate" IS NOT NULL AND "EventID" IS NOT NULL;

@@ -1,0 +1,34 @@
+Consider the following db schema: TABLE BPI2016_Clicks_Logged_In:
+CREATE TABLE "BPI2016_Clicks_Logged_In" ("CustomerID" TEXT, "AgeCategory" TEXT, "Gender" TEXT, "Office_U" TEXT, "Office_W" TEXT, "SessionID" TEXT, "IPID" TEXT, "ClickTimestamp" DATETIME, "VHOST" TEXT, "URL_FILE" TEXT, "PAGE_NAME" TEXT, "REF_URL_category" TEXT, "page_load_error" TEXT, "page_action_detail" TEXT, "tip" TEXT, "service_detail" TEXT, "xps_info" TEXT, "page_action_detail_EN" TEXT, "service_detail_EN" TEXT, "tip_EN" TEXT, PRIMARY KEY ("CustomerID", "ClickTimestamp"));
+
+TABLE BPI2016_Clicks_NOT_Logged_In:
+CREATE TABLE "BPI2016_Clicks_NOT_Logged_In" ("SessionID" TEXT, "IPID" TEXT, "ClickTimestamp" DATETIME, "VHOST" TEXT, "URL_FILE" TEXT, "PAGE_NAME" TEXT, "REF_URL_category" TEXT, "page_load_error" TEXT, "page_action_detail" TEXT, "tip" TEXT, "service_detail" TEXT, "xps_info" TEXT, "page_action_detail_EN" TEXT, "service_detail_EN" TEXT, "tip_EN" TEXT, PRIMARY KEY ("SessionID", "ClickTimestamp"));
+
+TABLE BPI2016_Complaints:
+CREATE TABLE "BPI2016_Complaints" ("CustomerID" TEXT, "AgeCategory" TEXT, "Gender" TEXT, "Office_U" TEXT, "Office_W" TEXT, "ComplaintDossierID" TEXT, "ComplaintID" TEXT, "ComplaintDate" DATETIME, "ContactChannelID" TEXT, "ComplaintThemeID" TEXT, "ComplaintSubthemeID" TEXT, "ComplaintTopicID" TEXT, "ComplaintTheme" TEXT, "ComplaintSubtheme" TEXT, "ComplaintTopic" TEXT, "ComplaintTheme_EN" TEXT, "ComplaintSubtheme_EN" TEXT, "ComplaintTopic_EN" TEXT, PRIMARY KEY ("CustomerID"));
+
+TABLE BPI2016_Questions:
+CREATE TABLE "BPI2016_Questions" ("CustomerID" TEXT, "AgeCategory" TEXT, "Gender" TEXT, "Office_U" TEXT, "Office_W" TEXT, "QuestionTimestampStart" DATETIME, "QuestionTimestampEnd" TEXT, "QuestionThemeID" TEXT, "QuestionSubthemeID" TEXT, "QuestionTopicID" TEXT, "QuestionTheme" TEXT, "QuestionSubtheme" TEXT, "QuestionTopic" TEXT, "QuestionTheme_EN" TEXT, "QuestionSubtheme_EN" TEXT, "QuestionTopic_EN" TEXT, PRIMARY KEY ("CustomerID", "QuestionTimestampStart"));
+
+TABLE BPI2016_Werkmap_Messages:
+CREATE TABLE "BPI2016_Werkmap_Messages" ("CustomerID" TEXT, "AgeCategory" TEXT, "Gender" TEXT, "Office_U" TEXT, "Office_W" TEXT, "WerkmapTimestamp" DATETIME, "EventType" TEXT, "HandlingChannelID" TEXT, PRIMARY KEY ("CustomerID", "WerkmapTimestamp"));
+Only use the tables that are given in the db schema. Never use an other table that is mentioned in this prompt.
+Only use the columns that are given in the db schema. Never use an other columnname that is mentioned in this prompt.
+
+Each record in each table represents at least one event.
+
+Use CustomerID as the case notion.
+
+When a table does not have an attribute that contains the selected case notion, combine the necessary tables to add this case notion to the table.
+Tables can be joined on attributes that have the exact same name. Use the attribute that holds the case notion as the case_id.
+
+If the BPI2016_Complaints table is present in the given db schema, then and only then, from the BPI2016_Complaints table use ComplaintTopic_EN as acivity_id.
+
+If the BPI2016_Clicks_NOT_Logged_In table is present in the given db schema, then and only then, join the BPI2016_Clicks_NOT_Logged_In table with the BPI2016_Clicks_Logged_In table on the column SessionID to obtain the CustomerID
+
+For the BPI2016_Clicks_Logged_In table and the BPI2016_Clicks_NOT_Logged_In table use PAGE_NAME as activity_id.
+
+Use for all timestamps the most detailed timeformat that occurs in the tables.
+If a value in the table is empty or NULL leave out the whole record.
+Remove duplicate records.
+Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

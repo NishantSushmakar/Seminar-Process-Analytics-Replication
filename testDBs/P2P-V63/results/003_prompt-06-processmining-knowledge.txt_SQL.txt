@@ -1,0 +1,20 @@
+SELECT DISTINCT
+    COALESCE("click"."customer_id", "invoice"."order_id", "shipment"."order_id") AS "case_id",
+    CASE
+        WHEN "click"."mouse_state" IS NOT NULL THEN "click"."mouse_state"
+        WHEN "configuration"."config_prop" IS NOT NULL THEN "configuration"."config_prop"
+        WHEN "invoice"."id" IS NOT NULL THEN 'invoice'
+        WHEN "order"."id" IS NOT NULL THEN 'order'
+        WHEN "payment"."id" IS NOT NULL THEN 'payment'
+        WHEN "shipment"."id" IS NOT NULL THEN 'shipment'
+    END AS "activity_id",
+    COALESCE("click"."creation_date", "configuration"."date", "invoice"."creation_date", "order"."creation_date", "payment"."creation_date", "shipment"."creation_date") AS "timestamp"
+FROM "click"
+LEFT JOIN "invoice" ON "click"."customer_id" = "invoice"."order_id"
+LEFT JOIN "shipment" ON "click"."customer_id" = "shipment"."order_id"
+LEFT JOIN "order" ON "invoice"."order_id" = "order"."id" OR "shipment"."order_id" = "order"."id"
+LEFT JOIN "payment" ON "invoice"."id" = "payment"."invoice_id"
+LEFT JOIN "configuration" ON 1=1
+WHERE "click"."customer_id" IS NOT NULL
+   OR "invoice"."order_id" IS NOT NULL
+   OR "shipment"."order_id" IS NOT NULL;

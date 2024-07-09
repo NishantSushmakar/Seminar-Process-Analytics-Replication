@@ -1,0 +1,9 @@
+case_id,activity_id,timestamp
+er1,order,2017-08-11 10:33:37
+er2,order,2017-08-11 10:33:37
+er3,order,2017-08-13 16:18:15
+er4,order,2017-08-13 16:18:15
+er1,invoice,2017-08-15 09:13:27
+er2,invoice,2017-08-17 17:38:36
+er3,invoice,2017-08-17 17:38:36
+er4,invoice,2017-08-23 14:23:19

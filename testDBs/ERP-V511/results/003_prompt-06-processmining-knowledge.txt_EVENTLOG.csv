@@ -1,0 +1,11 @@
+case_id,timestamp,activity_id
+c1,2017-08-11 10:33:37,order
+c1,2017-08-13 16:18:15,order
+c1,2017-08-14 11:36:35,shipment
+c1,2017-08-15 09:13:27,invoice
+c1,2017-08-16 14:15:31,shipment
+c1,2017-08-17 17:38:36,invoice
+c1,2017-08-19 13:22:04,shipment
+c1,2017-08-21 16:26:13,payment
+c1,2017-08-23 14:23:19,invoice
+c1,2017-08-26 14:53:49,payment

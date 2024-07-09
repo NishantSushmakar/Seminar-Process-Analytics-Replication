@@ -1,0 +1,3 @@
+﻿CustomerID,AgeCategory,Gender,Office_U,Office_W,ComplaintDossierID,ComplaintID,ComplaintDate,ContactChannelID,ComplaintThemeID,ComplaintSubthemeID,ComplaintTopicID,ComplaintTheme,ComplaintSubtheme,ComplaintTopic,ComplaintTheme_EN,ComplaintSubtheme_EN,ComplaintTopic_EN
+1945807,50-65,M,230,233,197,220,2016-01-12 00:00:00.000,8,1,5,1,behandelingsduur,n.v.t.,(herzienings)besluit wordt niet / te laat genomen,duration of treatment,N.A.,(Revision) Decision not/too late taken
+733565,30-39,M,296,290,198,221,2016-01-12 00:00:00.000,8,1,5,1,behandelingsduur,n.v.t.,(herzienings)besluit wordt niet / te laat genomen,duration of treatment,N.A.,(Revision) Decision not/too late taken

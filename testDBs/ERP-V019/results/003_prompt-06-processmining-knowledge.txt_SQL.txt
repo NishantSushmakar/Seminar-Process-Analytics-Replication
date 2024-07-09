@@ -1,0 +1,17 @@
+SELECT DISTINCT 
+    "customer"."id" AS "case_id", 
+    "order"."creation_date" AS "timestamp", 
+    'order' AS "activity_id"
+FROM 
+    "customer"
+JOIN 
+    "order" ON "customer"."id" = "order"."customer"
+UNION
+SELECT DISTINCT 
+    "customer"."id" AS "case_id", 
+    "shipment"."creation_date" AS "timestamp", 
+    'shipment' AS "activity_id"
+FROM 
+    "customer"
+JOIN 
+    "shipment" ON "customer"."id" = "shipment"."customer";

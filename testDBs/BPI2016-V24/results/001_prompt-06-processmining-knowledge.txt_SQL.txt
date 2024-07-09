@@ -1,0 +1,14 @@
+SELECT DISTINCT 
+    COALESCE("BPI2016_Clicks_Logged_In"."SessionID", "BPI2016_Clicks_NOT_Logged_In"."SessionID") AS "case_id",
+    COALESCE("BPI2016_Clicks_Logged_In"."PAGE_NAME", "BPI2016_Clicks_NOT_Logged_In"."PAGE_NAME") AS "activity_id",
+    COALESCE("BPI2016_Clicks_Logged_In"."ClickTimestamp", "BPI2016_Clicks_NOT_Logged_In"."ClickTimestamp") AS "timestamp"
+FROM 
+    "BPI2016_Clicks_Logged_In"
+FULL OUTER JOIN 
+    "BPI2016_Clicks_NOT_Logged_In"
+ON 
+    "BPI2016_Clicks_Logged_In"."SessionID" = "BPI2016_Clicks_NOT_Logged_In"."SessionID"
+    AND "BPI2016_Clicks_Logged_In"."ClickTimestamp" = "BPI2016_Clicks_NOT_Logged_In"."ClickTimestamp"
+WHERE 
+    "BPI2016_Clicks_Logged_In"."ClickTimestamp" IS NOT NULL
+    OR "BPI2016_Clicks_NOT_Logged_In"."ClickTimestamp" IS NOT NULL;

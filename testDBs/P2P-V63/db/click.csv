@@ -1,0 +1,5 @@
+id,customer_id,mouse_state,creation_date
+c1,c1,down,2017-08-11 10:33:37
+c2,c1,up,2017-08-13 16:18:15
+c3,c2,down,2017-08-15 22:02:53
+c4,c2,up,2017-08-17 16:18:15

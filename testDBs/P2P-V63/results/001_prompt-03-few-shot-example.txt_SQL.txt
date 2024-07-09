@@ -1,0 +1,8 @@
+SELECT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "order"
+UNION ALL
+SELECT "payment"."invoice_id" AS "case_id", 'payment' AS "activity_id", CAST("payment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "payment"
+UNION ALL
+SELECT "shipment"."order_id" AS "case_id", 'shipment' AS "activity_id", CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "shipment";

@@ -1,0 +1,6 @@
+Consider three experts are collaboratively answering a request using a tree of thoughts method. 
+Each one of the three experts will share their thought process in detail, taking into account the previous thoughts of others and admitting any errors. 
+They will iteratively refine and expand upon each others' ideas, giving credit where it's due. 
+The process continues until a conclusive answer to the request is found. The request is the following. 
+
+Considering the input database, write an SQL statement that generates an event log from this database with the following columns: case_id, activity_id, timestamp.

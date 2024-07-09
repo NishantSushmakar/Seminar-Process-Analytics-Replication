@@ -1,0 +1,96 @@
+SELECT 
+    "CaseID" AS "case_id", 
+    "EventID" AS "activity_id", 
+    CAST("EventDateTime" AS VARCHAR) AS "timestamp"
+FROM 
+    "T200"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventDateTime" IS NOT NULL AND "EventID" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "CaseID" AS "case_id", 
+    "EventID" AS "activity_id", 
+    CAST("EventDate" AS VARCHAR) AS "timestamp"
+FROM 
+    "T300"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventDate" IS NOT NULL AND "EventID" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "CaseID" AS "case_id", 
+    'T500_EventID_501' AS "activity_id", 
+    CAST("EventID_501" AS VARCHAR) AS "timestamp"
+FROM 
+    "T500"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventID_501" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "CaseID" AS "case_id", 
+    'T500_EventID_502' AS "activity_id", 
+    CAST("EventID_502" AS VARCHAR) AS "timestamp"
+FROM 
+    "T500"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventID_502" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "CaseID" AS "case_id", 
+    'T500_EventID_503' AS "activity_id", 
+    CAST("EventID_503" AS VARCHAR) AS "timestamp"
+FROM 
+    "T500"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventID_503" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "CaseID" AS "case_id", 
+    'T500_EventID_504' AS "activity_id", 
+    CAST("EventID_504" AS VARCHAR) AS "timestamp"
+FROM 
+    "T500"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventID_504" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "CaseID" AS "case_id", 
+    'T500_EventID_505' AS "activity_id", 
+    CAST("EventID_505" AS VARCHAR) AS "timestamp"
+FROM 
+    "T500"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventID_505" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "CaseID" AS "case_id", 
+    'T500_EventID_506' AS "activity_id", 
+    CAST("EventID_506" AS VARCHAR) AS "timestamp"
+FROM 
+    "T500"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventID_506" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "CaseID" AS "case_id", 
+    'T500_EventID_507' AS "activity_id", 
+    CAST("EventID_507" AS VARCHAR) AS "timestamp"
+FROM 
+    "T500"
+WHERE 
+    "CaseID" IS NOT NULL AND "EventID_507" IS NOT NULL;

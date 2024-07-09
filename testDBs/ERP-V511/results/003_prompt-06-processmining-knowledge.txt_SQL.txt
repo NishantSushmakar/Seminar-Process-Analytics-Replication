@@ -1,0 +1,29 @@
+SELECT DISTINCT 
+    "customer"."id" AS "case_id", 
+    "order"."creation_date" AS "timestamp", 
+    'order' AS "activity_id"
+FROM "order"
+JOIN "customer" ON "order"."customer" = "customer"."id"
+UNION
+SELECT DISTINCT 
+    "customer"."id" AS "case_id", 
+    "invoice"."creation_date" AS "timestamp", 
+    'invoice' AS "activity_id"
+FROM "invoice"
+JOIN "customer" ON "invoice"."customer" = "customer"."id"
+UNION
+SELECT DISTINCT 
+    "customer"."id" AS "case_id", 
+    "shipment"."creation_date" AS "timestamp", 
+    'shipment' AS "activity_id"
+FROM "shipment"
+JOIN "customer" ON "shipment"."customer" = "customer"."id"
+UNION
+SELECT DISTINCT 
+    "customer"."id" AS "case_id", 
+    "payment"."creation_date" AS "timestamp", 
+    'payment' AS "activity_id"
+FROM "payment"
+JOIN "payment_line" ON "payment"."id" = "payment_line"."payment"
+JOIN "invoice" ON "payment_line"."invoice" = "invoice"."id"
+JOIN "customer" ON "invoice"."customer" = "customer"."id";
