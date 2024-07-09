@@ -4,7 +4,6 @@
 Process mining is a discipline that enables organizations to discover and analyze their work processes. A prerequisite for conducting a process mining initiative is the so-called event log, which is not always readily available. In such cases, extracting an event log involves various time-consuming tasks, such as creating tailor-made structured query language (SQL) scripts to extract an event log from a relational database. With this project, we investigate the use of large language models (LLMs) to support event log extraction, particularly by leveraging LLMs' ability to produce SQL scripts. We report on how effectively an LLM can assist with event log extraction for process mining. Despite the intrinsic non-deterministic nature of LLMs, our results show the potential of future LLM-assisted event log extraction tools, especially when domain and data knowledge are available. The implementation of such tools can increase access to event log extraction to a broader range of users within an organization by reducing the reliance on specialized technical skills for producing relational database query scripts and minimizing manual effort.
 
 ## Repository Structure
-
 ├── plots                                      <- Directory for plot files.
 ├── prompts                                    <- Directory for prompt files used by LLMs.
 ├── testDBs                                    <- Directory for test databases.
