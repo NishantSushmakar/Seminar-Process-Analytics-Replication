@@ -84,6 +84,25 @@ Contributions are welcome! Please follow these steps:
 6. Create a new Pull Request.
 
 ## License
-
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Authors and Affiliations
+
+**Vinicius Stein Dani\(^1\)**, **Marcus Dees\(^2\)**, **Henrik Leopold\(^3\)**, **Kiran Busch\(^3\)**, **Iris Beerepoot\(^1\)**, **Jan Martijn E. M. van der Werf\(^1\)**, and **Hajo A. Reijers\(^1\)**  
+
+**Author Running Head:** Stein Dani et al.  
+
+### Affiliations:
+
+1. **Utrecht University**  
+   Utrecht, The Netherlands  
+   **Emails:** v.steindani@uu.nl, i.m.beerepoot@uu.nl, j.m.e.m.vanderwerf@uu.nl, h.a.reijers@uu.nl  
+
+2. **Uitvoeringsinstituut Werknemersverzekeringen**  
+   Amsterdam, The Netherlands  
+   **Email:** marcus.dees@uwv.nl  
+
+3. **Kühne Logistics University**  
+   Hamburg, Germany  
+   **Emails:** henrik.leopold@the-klu.org, kiran.busch@the-klu.org  
 
