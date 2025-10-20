@@ -1,0 +1,19 @@
+SELECT "id" AS "case_id", 'customer' AS "activity_id", CAST(NULL AS VARCHAR) AS "timestamp" FROM "customer"
+UNION ALL
+SELECT "order" AS "case_id", 'element_relation_order' AS "activity_id", CAST(NULL AS VARCHAR) AS "timestamp" FROM "element_relation"
+UNION ALL
+SELECT "invoice" AS "case_id", 'element_relation_invoice' AS "activity_id", CAST(NULL AS VARCHAR) AS "timestamp" FROM "element_relation"
+UNION ALL
+SELECT "id" AS "case_id", 'invoice' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "invoice"
+UNION ALL
+SELECT "id" AS "case_id", 'order' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+UNION ALL
+SELECT "order" AS "case_id", 'order_line' AS "activity_id", CAST(NULL AS VARCHAR) AS "timestamp" FROM "order_line"
+UNION ALL
+SELECT "id" AS "case_id", 'payment' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "payment"
+UNION ALL
+SELECT "payment" AS "case_id", 'payment_line' AS "activity_id", CAST(NULL AS VARCHAR) AS "timestamp" FROM "payment_line"
+UNION ALL
+SELECT "id" AS "case_id", 'shipment' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "shipment"
+UNION ALL
+SELECT "shipment" AS "case_id", 'shipment_line' AS "activity_id", CAST(NULL AS VARCHAR) AS "timestamp" FROM "shipment_line";

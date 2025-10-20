@@ -1,0 +1,19 @@
+Consider the following db schema: TABLE T200:
+CREATE TABLE "T200" ("CaseID" TEXT, "EventDateTime" DATETIME, "EventID" TEXT, PRIMARY KEY ("CaseID", "EventDateTime", "EventID"));
+
+TABLE T300:
+CREATE TABLE "T300" ("CaseID" TEXT, "EventDate" TEXT, "EventID" TEXT, "Attribute_301" TEXT, PRIMARY KEY ("CaseID", "EventID"));
+
+TABLE T500:
+CREATE TABLE "T500" ("SessionID" TEXT, "CaseID" TEXT, "EventID_501" DATETIME, "EventID_502" DATETIME, "EventID_503" DATETIME, "EventID_504" DATETIME, "EventID_505" DATETIME, "EventID_506" DATETIME, "EventID_507" DATETIME, "Attribute_510" TEXT, PRIMARY KEY ("CaseID"));
+Each record in each table represents at least one event.
+Never use the configuration table and never use the click table.
+
+If a table contains one timestamp attribute and no other attribute with a textual format, then the activity_id is equal to the table name.
+If a table contains multiple timestamp attributes, then each of these attributes is related to an event with the activity_id equal to the attribute name.
+
+Use the id of the order as the case notion.
+if the payment table is present in the db schema, then and only then, join the payment table with the invoice table and use the order_id from the invoice_table as the case_id for the events from the payment table.
+Use the name of the table as the activity_id.
+
+When a table does not have an attribute that contains the selected case notion, combine the necessary tables to obtain this case notion.Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

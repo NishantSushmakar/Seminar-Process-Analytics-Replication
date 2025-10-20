@@ -1,0 +1,18 @@
+SELECT 
+    COALESCE("order"."customer", "invoice"."customer") AS "case_id",
+    CASE 
+        WHEN "order"."creation_date" IS NOT NULL THEN 'order_creation_date'
+        WHEN "invoice"."creation_date" IS NOT NULL THEN 'invoice_creation_date'
+    END AS "activity_id",
+    COALESCE("order"."creation_date", "invoice"."creation_date") AS "timestamp"
+FROM 
+    "order"
+JOIN 
+    "element_relation" ON "order"."id" = "element_relation"."order"
+JOIN 
+    "invoice" ON "invoice"."id" = "element_relation"."invoice"
+WHERE 
+    "order"."customer" IS NOT NULL 
+    AND "invoice"."customer" IS NOT NULL 
+    AND "order"."creation_date" IS NOT NULL 
+    AND "invoice"."creation_date" IS NOT NULL;

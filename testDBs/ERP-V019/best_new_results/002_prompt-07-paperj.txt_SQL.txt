@@ -1,0 +1,9 @@
+```sql
+SELECT DISTINCT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "order"
+UNION
+SELECT DISTINCT "order_line"."order" AS "case_id", 'shipment' AS "activity_id", CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "shipment"
+JOIN "shipment_line" ON "shipment"."id" = "shipment_line"."shipment"
+JOIN "order_line" ON "shipment_line"."order_line" = "order_line"."id";
+```

@@ -124,7 +124,15 @@ def create_database_and_tables(files_structure, sorted_table_names, column_types
         print(f"Data inserted into table {table_name}")
 
     # Insert data in sorted order
-    for table_name in sorted_table_names+list(set(list(files_structure.keys()))-set(sorted_table_names)):
+    all_tables_to_process = sorted_table_names+list(set(list(files_structure.keys()))-set(sorted_table_names))
+    print(f"DEBUG: files_structure keys: {list(files_structure.keys())}")
+    print(f"DEBUG: sorted_table_names: {sorted_table_names}")
+    print(f"DEBUG: all_tables_to_process: {all_tables_to_process}")
+    
+    for table_name in all_tables_to_process:
+        if table_name not in files_structure:
+            print(f"ERROR: Table '{table_name}' not found in files_structure")
+            continue
         insert_data_into_db(table_name)
 
     conn.commit()

@@ -1,0 +1,34 @@
+SELECT DISTINCT 
+    CAST(COALESCE(T100."CaseID", T200."CaseID", T300."CaseID", T400."CaseID", T500."CaseID") AS VARCHAR) AS "case_id",
+    CAST(COALESCE(
+        T100."Attribute_101", 
+        T200."EventID", 
+        T300."Attribute_301", 
+        T400."T400", 
+        CONCAT('T500_', 'EventID_501'), 
+        CONCAT('T500_', 'EventID_502'), 
+        CONCAT('T500_', 'EventID_503'), 
+        CONCAT('T500_', 'EventID_504'), 
+        CONCAT('T500_', 'EventID_505'), 
+        CONCAT('T500_', 'EventID_506'), 
+        CONCAT('T500_', 'EventID_507')
+    ) AS VARCHAR) AS "activity_id",
+    CAST(COALESCE(
+        T100."EventDateTime", 
+        T200."EventDateTime", 
+        T300."EventDate", 
+        T400."EventID_400", 
+        T500."EventID_501", 
+        T500."EventID_502", 
+        T500."EventID_503", 
+        T500."EventID_504", 
+        T500."EventID_505", 
+        T500."EventID_506", 
+        T500."EventID_507"
+    ) AS VARCHAR) AS "timestamp"
+FROM 
+    T100
+FULL OUTER JOIN T200 ON T100."CaseID" = T200."CaseID"
+FULL OUTER JOIN T300 ON T100."CaseID" = T300."CaseID"
+FULL OUTER JOIN T400 ON T100."CaseID" = T400."CaseID"
+FULL OUTER JOIN T500 ON T100."CaseID" = T500."CaseID"

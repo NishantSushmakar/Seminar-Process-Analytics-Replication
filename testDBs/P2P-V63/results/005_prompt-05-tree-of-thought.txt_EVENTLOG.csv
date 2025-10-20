@@ -1,0 +1,22 @@
+case_id,activity_id,timestamp
+o1,invoice_created,2017-08-15 09:13:27
+o2,invoice_created,2017-08-17 17:38:36
+o3,invoice_created,2017-08-19 23:03:45
+o4,invoice_created,2017-08-21 14:25:04
+o1,shipment_created,2017-08-24 11:36:35
+o4,shipment_created,2017-08-30 09:45:31
+i1,payment_created,2017-08-21 16:26:13
+i3,payment_created,2017-08-23 18:42:09
+i4,payment_created,2017-08-25 20:52:10
+o1,order_created,2017-08-11 10:33:37
+o2,order_created,2017-08-13 16:18:15
+o3,order_created,2017-08-15 22:02:53
+o4,order_created,2017-08-17 02:18:12
+c1,click,2017-08-11 10:33:37
+c1,click,2017-08-13 16:18:15
+c2,click,2017-08-15 22:02:53
+c2,click,2017-08-17 16:18:15
+c1,configuration,2017-08-11 10:33:37
+c2,configuration,2017-08-13 16:18:15
+c3,configuration,2017-08-15 22:02:53
+c4,configuration,2017-08-17 16:18:15

@@ -1,0 +1,17 @@
+SELECT DISTINCT 
+    CAST("CustomerID" AS VARCHAR) AS "case_id",
+    CAST(COALESCE("page_action_detail", "service_detail", "tip", "ComplaintTheme", "QuestionTheme", "EventType", 'BPI2016_Questions_QuestionTimestampEnd', 'BPI2016_Questions_QuestionTimestampStart', 'BPI2016_Complaints_ComplaintDate', 'BPI2016_Werkmap_Messages_WerkmapTimestamp') AS VARCHAR) AS "activity_id",
+    CAST(COALESCE("ClickTimestamp", "ComplaintDate", "QuestionTimestampStart", "QuestionTimestampEnd", "WerkmapTimestamp") AS VARCHAR) AS "timestamp"
+FROM (
+    SELECT "CustomerID", "page_action_detail", "service_detail", "tip", "ClickTimestamp", NULL AS "ComplaintTheme", NULL AS "QuestionTheme", NULL AS "EventType", NULL AS "ComplaintDate", NULL AS "QuestionTimestampStart", NULL AS "QuestionTimestampEnd", NULL AS "WerkmapTimestamp"
+    FROM "BPI2016_Clicks_Logged_In"
+    UNION
+    SELECT "CustomerID", NULL, NULL, NULL, NULL, "ComplaintTheme", NULL, NULL, "ComplaintDate", NULL, NULL, NULL
+    FROM "BPI2016_Complaints"
+    UNION
+    SELECT "CustomerID", NULL, NULL, NULL, NULL, NULL, "QuestionTheme", NULL, NULL, "QuestionTimestampStart", "QuestionTimestampEnd", NULL
+    FROM "BPI2016_Questions"
+    UNION
+    SELECT "CustomerID", NULL, NULL, NULL, NULL, NULL, NULL, "EventType", NULL, NULL, NULL, "WerkmapTimestamp"
+    FROM "BPI2016_Werkmap_Messages"
+) AS combined_events;

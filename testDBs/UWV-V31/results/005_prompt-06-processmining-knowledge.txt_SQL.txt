@@ -1,0 +1,36 @@
+SELECT DISTINCT 
+    CAST(COALESCE(T100."CaseID", T200."CaseID", T300."CaseID", T400."CaseID", T500."CaseID") AS VARCHAR) AS "case_id",
+    CAST(COALESCE(
+        T100."EventID", 
+        T200."EventID", 
+        T300."EventID", 
+        T400."EventID_400", 
+        CASE 
+            WHEN T500."EventID_501" IS NOT NULL THEN 'T500_EventID_501'
+            WHEN T500."EventID_502" IS NOT NULL THEN 'T500_EventID_502'
+            WHEN T500."EventID_503" IS NOT NULL THEN 'T500_EventID_503'
+            WHEN T500."EventID_504" IS NOT NULL THEN 'T500_EventID_504'
+            WHEN T500."EventID_505" IS NOT NULL THEN 'T500_EventID_505'
+            WHEN T500."EventID_506" IS NOT NULL THEN 'T500_EventID_506'
+            WHEN T500."EventID_507" IS NOT NULL THEN 'T500_EventID_507'
+        END
+    ) AS VARCHAR) AS "activity_id",
+    CAST(COALESCE(
+        T100."EventDateTime", 
+        T200."EventDateTime", 
+        T300."EventDate", 
+        T400."EventID_400", 
+        T500."EventID_501", 
+        T500."EventID_502", 
+        T500."EventID_503", 
+        T500."EventID_504", 
+        T500."EventID_505", 
+        T500."EventID_506", 
+        T500."EventID_507"
+    ) AS VARCHAR) AS "timestamp"
+FROM 
+    T100
+FULL OUTER JOIN T200 ON T100."CaseID" = T200."CaseID" AND T100."EventDateTime" = T200."EventDateTime" AND T100."EventID" = T200."EventID"
+FULL OUTER JOIN T300 ON T100."CaseID" = T300."CaseID" AND T100."EventID" = T300."EventID"
+FULL OUTER JOIN T400 ON T100."CaseID" = T400."CaseID" AND T100."EventID" = T400."EventID_400"
+FULL OUTER JOIN T500 ON T100."CaseID" = T500."CaseID";

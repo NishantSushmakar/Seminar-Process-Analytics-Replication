@@ -1,0 +1,38 @@
+SELECT DISTINCT 
+    CAST(COALESCE("order"."customer", "invoice"."customer", "shipment"."customer") AS VARCHAR) AS "case_id",
+    CAST(COALESCE("order"."creation_date", "invoice"."creation_date", "shipment"."creation_date", 'element_relation') AS VARCHAR) AS "activity_id",
+    CAST(COALESCE("order"."creation_date", "invoice"."creation_date", "shipment"."creation_date") AS VARCHAR) AS "timestamp"
+FROM 
+    "order"
+LEFT JOIN 
+    "element_relation" ON "order"."id" = "element_relation"."order"
+LEFT JOIN 
+    "invoice" ON "element_relation"."invoice" = "invoice"."id"
+LEFT JOIN 
+    "shipment" ON "order"."customer" = "shipment"."customer"
+UNION
+SELECT DISTINCT 
+    CAST("invoice"."customer" AS VARCHAR) AS "case_id",
+    CAST("invoice"."creation_date" AS VARCHAR) AS "activity_id",
+    CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp"
+FROM 
+    "invoice"
+LEFT JOIN 
+    "element_relation" ON "invoice"."id" = "element_relation"."invoice"
+LEFT JOIN 
+    "order" ON "element_relation"."order" = "order"."id"
+LEFT JOIN 
+    "shipment" ON "invoice"."customer" = "shipment"."customer"
+UNION
+SELECT DISTINCT 
+    CAST("shipment"."customer" AS VARCHAR) AS "case_id",
+    CAST("shipment"."creation_date" AS VARCHAR) AS "activity_id",
+    CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM 
+    "shipment"
+LEFT JOIN 
+    "order" ON "shipment"."customer" = "order"."customer"
+LEFT JOIN 
+    "element_relation" ON "order"."id" = "element_relation"."order"
+LEFT JOIN 
+    "invoice" ON "element_relation"."invoice" = "invoice"."id";

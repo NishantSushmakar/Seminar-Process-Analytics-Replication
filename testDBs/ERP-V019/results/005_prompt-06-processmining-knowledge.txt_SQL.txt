@@ -1,0 +1,8 @@
+SELECT DISTINCT "customer" AS "case_id", "activity_id", "timestamp"
+FROM (
+    SELECT "customer", "name" AS "activity_id", "creation_date" AS "timestamp"
+    FROM "order"
+    UNION ALL
+    SELECT "customer", "name" AS "activity_id", "creation_date" AS "timestamp"
+    FROM "shipment"
+) AS events;

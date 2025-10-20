@@ -1,0 +1,3 @@
+SELECT DISTINCT "customer" AS "case_id", "order"."creation_date" AS "timestamp", 'order_creation_date' AS "activity_id" FROM "order"
+UNION
+SELECT DISTINCT "customer" AS "case_id", "shipment"."creation_date" AS "timestamp", 'shipment_creation_date' AS "activity_id" FROM "shipment"

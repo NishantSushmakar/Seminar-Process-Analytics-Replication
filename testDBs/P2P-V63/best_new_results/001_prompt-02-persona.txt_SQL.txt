@@ -1,0 +1,11 @@
+SELECT "order"."id" AS "case_id", 'order_created' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+UNION ALL
+SELECT "invoice"."order_id" AS "case_id", 'invoice_created' AS "activity_id", CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp" FROM "invoice"
+UNION ALL
+SELECT "payment"."invoice_id" AS "case_id", 'payment_created' AS "activity_id", CAST("payment"."creation_date" AS VARCHAR) AS "timestamp" FROM "payment"
+UNION ALL
+SELECT "shipment"."order_id" AS "case_id", 'shipment_created' AS "activity_id", CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp" FROM "shipment"
+UNION ALL
+SELECT "click"."customer_id" AS "case_id", 'click_' || "click"."mouse_state" AS "activity_id", CAST("click"."creation_date" AS VARCHAR) AS "timestamp" FROM "click"
+UNION ALL
+SELECT "configuration"."id" AS "case_id", 'configuration_' || "configuration"."status" AS "activity_id", CAST("configuration"."date" AS VARCHAR) AS "timestamp" FROM "configuration";

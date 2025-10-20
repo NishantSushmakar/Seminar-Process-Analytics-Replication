@@ -1,0 +1,43 @@
+Consider the following db schema: TABLE T200:
+CREATE TABLE "T200" ("CaseID" TEXT, "EventDateTime" DATETIME, "EventID" TEXT, PRIMARY KEY ("CaseID", "EventDateTime", "EventID"));
+
+TABLE T300:
+CREATE TABLE "T300" ("CaseID" TEXT, "EventDate" TEXT, "EventID" TEXT, "Attribute_301" TEXT, PRIMARY KEY ("CaseID", "EventID"));
+
+TABLE T500:
+CREATE TABLE "T500" ("SessionID" TEXT, "CaseID" TEXT, "EventID_501" DATETIME, "EventID_502" DATETIME, "EventID_503" DATETIME, "EventID_504" DATETIME, "EventID_505" DATETIME, "EventID_506" DATETIME, "EventID_507" DATETIME, "Attribute_510" TEXT, PRIMARY KEY ("CaseID"));
+BEGIN Example.
+
+Next, I show you an example of how an event log looks like when extracted from a database with two tables.
+
+BEGIN Database.
+
+Order
+id,creation_date
+1,2020-02-01
+2,2020-06-01
+3,2020-10-01
+
+Payment
+id,id_order,creation_date
+1,1,2020-02-02
+2,3,2020-10-02
+
+END Database.
+
+BEGIN Generated event log.
+case_id, activity_id, timestamp
+1,order,2020-02-01
+1,payment,2020-02-02
+2,order,2020-06-01
+3,order,2020-10-01
+3,payment,2020-10-02
+END Generated event log.
+
+END Example.
+
+Considering the input database, write an SQL statement that generates an event log from this database with the following columns: case_id, activity_id, timestamp. 
+
+
+
+Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

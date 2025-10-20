@@ -1,0 +1,701 @@
+🚀 Starting SQL file comparison...
+🔍 Discovering databases...
+  ✅ Found: UWV-V31
+  ✅ Found: BPI2016-V07
+  ✅ Found: BPI2016-V31
+  ✅ Found: UWV-V06
+  ✅ Found: P2P-V63
+  ✅ Found: ERP-V019
+  ✅ Found: ERP-V209
+  ✅ Found: P2P-V15
+  ✅ Found: BPI2016-V24
+  ✅ Found: UWV-V22
+  ✅ Found: P2P-V03
+  ✅ Found: ERP-V511
+
+📊 Found 12 databases to compare
+
+🔍 Comparing database: UWV-V31
+  ✅ prompt-01-baseline: Identical
+  🔄 prompt-02-persona: Different (similarity: 99.4%)
+  ✅ prompt-03-few-shot-example: Identical
+  ✅ prompt-04-chain-of-thought: Identical
+  ✅ prompt-05-tree-of-thought: Identical
+  🔄 prompt-06-processmining-knowledge: Different (similarity: 57.8%)
+  📄 prompt-07-RunningExample: Only in results (002_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-RunningExample: Only in results (001_prompt-07-RunningExample.txt_SQL.txt)
+  🔄 prompt-07-UWV: Different (similarity: 97.4%)
+  📄 prompt-07-paperj: Only in results (001_prompt-07-paperj.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (002_prompt-07-paperj.txt_SQL.txt)
+
+🔍 Comparing database: BPI2016-V07
+  🔄 prompt-01-baseline: Different (similarity: 87.6%)
+  🔄 prompt-02-persona: Different (similarity: 87.8%)
+  🔄 prompt-03-few-shot-example: Different (similarity: 96.7%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 87.8%)
+  ✅ prompt-05-tree-of-thought: Identical
+  ✅ prompt-06-processmining-knowledge: Identical
+  🔄 prompt-07-BPI2016: Different (similarity: 81.8%)
+  📄 prompt-07-RunningExample: Only in results (002_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-RunningExample: Only in results (001_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (001_prompt-07-paperj.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (002_prompt-07-paperj.txt_SQL.txt)
+
+🔍 Comparing database: BPI2016-V31
+  🔄 prompt-01-baseline: Different (similarity: 93.2%)
+  🔄 prompt-02-persona: Different (similarity: 81.4%)
+  🔄 prompt-03-few-shot-example: Different (similarity: 87.5%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 75.6%)
+  🔄 prompt-05-tree-of-thought: Different (similarity: 75.5%)
+  🔄 prompt-06-processmining-knowledge: Different (similarity: 42.2%)
+  🔄 prompt-07-BPI2016: Different (similarity: 35.9%)
+  📄 prompt-07-RunningExample: Only in results (002_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-RunningExample: Only in results (001_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (001_prompt-07-paperj.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (002_prompt-07-paperj.txt_SQL.txt)
+
+🔍 Comparing database: UWV-V06
+  ✅ prompt-01-baseline: Identical
+  ✅ prompt-02-persona: Identical
+  🔄 prompt-03-few-shot-example: Different (similarity: 57.8%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 75.3%)
+  ✅ prompt-05-tree-of-thought: Identical
+  ✅ prompt-06-processmining-knowledge: Identical
+  📄 prompt-07-RunningExample: Only in results (002_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-RunningExample: Only in results (001_prompt-07-RunningExample.txt_SQL.txt)
+  🔄 prompt-07-UWV: Different (similarity: 54.1%)
+  📄 prompt-07-paperj: Only in results (001_prompt-07-paperj.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (002_prompt-07-paperj.txt_SQL.txt)
+
+🔍 Comparing database: P2P-V63
+  ✅ prompt-01-baseline: Identical
+  🔄 prompt-02-persona: Different (similarity: 89.1%)
+  🔄 prompt-03-few-shot-example: Different (similarity: 73.4%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 60.5%)
+  🔄 prompt-05-tree-of-thought: Different (similarity: 62.4%)
+  🔄 prompt-06-processmining-knowledge: Different (similarity: 62.8%)
+  📄 prompt-07-P2P: Only in results (002_prompt-07-P2P.txt_SQL.txt)
+  📄 prompt-07-P2P: Only in results (001_prompt-07-P2P.txt_SQL.txt)
+  ✅ prompt-07-RunningExample: Identical
+  📄 prompt-07-UWV: Only in results (001_prompt-07-UWV.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (001_prompt-07-paperj.txt_SQL.txt)
+
+🔍 Comparing database: ERP-V019
+  🔄 prompt-01-baseline: Different (similarity: 98.8%)
+  ✅ prompt-02-persona: Identical
+  🔄 prompt-03-few-shot-example: Different (similarity: 99.4%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 98.6%)
+  🔄 prompt-05-tree-of-thought: Different (similarity: 53.0%)
+  🔄 prompt-06-processmining-knowledge: Different (similarity: 36.2%)
+  📄 prompt-07-ERP: Only in results (001_prompt-07-ERP.txt_SQL.txt)
+  📄 prompt-07-ERP: Only in results (002_prompt-07-ERP.txt_SQL.txt)
+  📄 prompt-07-P2P: Only in results (002_prompt-07-P2P.txt_SQL.txt)
+  📄 prompt-07-P2P: Only in results (001_prompt-07-P2P.txt_SQL.txt)
+  📄 prompt-07-RunningExample: Only in results (004_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-RunningExample: Only in results (003_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-RunningExample: Only in results (005_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-RunningExample: Only in results (002_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-RunningExample: Only in results (001_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-UWV: Only in results (001_prompt-07-UWV.txt_SQL.txt)
+  🔄 prompt-07-paperj: Different (similarity: 97.7%)
+
+🔍 Comparing database: ERP-V209
+  🔄 prompt-01-baseline: Different (similarity: 44.5%)
+  🔄 prompt-02-persona: Different (similarity: 50.4%)
+  🔄 prompt-03-few-shot-example: Different (similarity: 85.1%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 95.5%)
+  ✅ prompt-05-tree-of-thought: Identical
+  🔄 prompt-06-processmining-knowledge: Different (similarity: 95.4%)
+  📄 prompt-07-RunningExample: Only in results (001_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-UWV: Only in results (001_prompt-07-UWV.txt_SQL.txt)
+  🔄 prompt-07-paperj: Different (similarity: 97.1%)
+
+🔍 Comparing database: P2P-V15
+  🔄 prompt-01-baseline: Different (similarity: 49.0%)
+  🔄 prompt-02-persona: Different (similarity: 53.0%)
+  🔄 prompt-03-few-shot-example: Different (similarity: 68.8%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 55.4%)
+  ✅ prompt-05-tree-of-thought: Identical
+  🔄 prompt-06-processmining-knowledge: Different (similarity: 21.4%)
+  ✅ prompt-07-RunningExample: Identical
+  📄 prompt-07-UWV: Only in results (001_prompt-07-UWV.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (001_prompt-07-paperj.txt_SQL.txt)
+
+🔍 Comparing database: BPI2016-V24
+  🔄 prompt-01-baseline: Different (similarity: 94.0%)
+  🔄 prompt-02-persona: Different (similarity: 94.0%)
+  🔄 prompt-03-few-shot-example: Different (similarity: 83.5%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 94.0%)
+  ✅ prompt-05-tree-of-thought: Identical
+  🔄 prompt-06-processmining-knowledge: Different (similarity: 95.5%)
+  🔄 prompt-07-BPI2016: Different (similarity: 98.1%)
+  📄 prompt-07-RunningExample: Only in results (001_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (001_prompt-07-paperj.txt_SQL.txt)
+
+🔍 Comparing database: UWV-V22
+  ✅ prompt-01-baseline: Identical
+  ✅ prompt-02-persona: Identical
+  🔄 prompt-03-few-shot-example: Different (similarity: 75.7%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 82.5%)
+  🔄 prompt-05-tree-of-thought: Different (similarity: 100.0%)
+  🔄 prompt-06-processmining-knowledge: Different (similarity: 24.3%)
+  📄 prompt-07-RunningExample: Only in results (001_prompt-07-RunningExample.txt_SQL.txt)
+  🔄 prompt-07-UWV: Different (similarity: 70.7%)
+  📄 prompt-07-paperj: Only in results (001_prompt-07-paperj.txt_SQL.txt)
+
+🔍 Comparing database: P2P-V03
+  🔄 prompt-01-baseline: Different (similarity: 58.6%)
+  🔄 prompt-02-persona: Different (similarity: 89.9%)
+  🔄 prompt-03-few-shot-example: Different (similarity: 78.8%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 44.1%)
+  ✅ prompt-05-tree-of-thought: Identical
+  ✅ prompt-06-processmining-knowledge: Identical
+  🔄 prompt-07-RunningExample: Different (similarity: 99.8%)
+  📄 prompt-07-UWV: Only in results (001_prompt-07-UWV.txt_SQL.txt)
+  📄 prompt-07-paperj: Only in results (001_prompt-07-paperj.txt_SQL.txt)
+
+🔍 Comparing database: ERP-V511
+  🔄 prompt-01-baseline: Different (similarity: 94.7%)
+  🔄 prompt-02-persona: Different (similarity: 78.4%)
+  🔄 prompt-03-few-shot-example: Different (similarity: 40.8%)
+  🔄 prompt-04-chain-of-thought: Different (similarity: 50.7%)
+  🔄 prompt-05-tree-of-thought: Different (similarity: 82.6%)
+  🔄 prompt-06-processmining-knowledge: Different (similarity: 69.5%)
+  📄 prompt-07-RunningExample: Only in results (001_prompt-07-RunningExample.txt_SQL.txt)
+  📄 prompt-07-UWV: Only in results (001_prompt-07-UWV.txt_SQL.txt)
+  🔄 prompt-07-paperj: Different (similarity: 98.2%)
+
+================================================================================
+📊 SQL FILE COMPARISON REPORT
+================================================================================
+📈 Summary Statistics:
+  Total databases: 12
+  Total comparisons: 84
+  Identical files: 21
+  Different files: 63
+  Missing files: 42
+  Identical rate: 25.0%
+
+🔍 Detailed Analysis by Database:
+
+📁 UWV-V31:
+  📊 Summary: 4 identical, 3 different, 4 missing
+  🔄 Different files:
+    - prompt-02-persona: 99.4% similar
+      Sample differences:
+        --- results/001_prompt-02-persona.txt_SQL.txt
+        +++ best_new_results/001_prompt-02-persona.txt_SQL.txt
+        ... and 6 more differences
+    - prompt-06-processmining-knowledge: 57.8% similar
+      Sample differences:
+        --- results/004_prompt-06-processmining-knowledge.txt_SQL.txt
+        +++ best_new_results/002_prompt-06-processmining-knowledge.txt_SQL.txt
+        ... and 58 more differences
+    - prompt-07-UWV: 97.4% similar
+      Sample differences:
+        --- results/001_prompt-07-UWV.txt_SQL.txt
+        +++ best_new_results/001_prompt-07-UWV.txt_SQL.txt
+        -SELECT
+        -    "CaseID" AS "case_id",
+        ... and 105 more differences
+  ⚠️  Missing files:
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-paperj: only_in_results
+    - prompt-07-paperj: only_in_results
+
+📁 BPI2016-V07:
+  📊 Summary: 2 identical, 5 different, 4 missing
+  🔄 Different files:
+    - prompt-01-baseline: 87.6% similar
+      Sample differences:
+        --- results/005_prompt-01-baseline.txt_SQL.txt
+        +++ best_new_results/003_prompt-01-baseline.txt_SQL.txt
+        ... and 13 more differences
+    - prompt-02-persona: 87.8% similar
+      Sample differences:
+        --- results/001_prompt-02-persona.txt_SQL.txt
+        +++ best_new_results/001_prompt-02-persona.txt_SQL.txt
+        -SELECT
+        -    "CustomerID" AS "case_id",
+        ... and 21 more differences
+    - prompt-03-few-shot-example: 96.7% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT
+        -    "CustomerID" AS "case_id",
+        ... and 21 more differences
+    - prompt-04-chain-of-thought: 87.8% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT
+        -    "CustomerID" AS "case_id",
+        ... and 21 more differences
+    - prompt-07-BPI2016: 81.8% similar
+      Sample differences:
+        --- results/001_prompt-07-BPI2016.txt_SQL.txt
+        +++ best_new_results/001_prompt-07-BPI2016.txt_SQL.txt
+        -SELECT DISTINCT
+        -    "CustomerID" AS "case_id",
+        ... and 31 more differences
+  ⚠️  Missing files:
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-paperj: only_in_results
+    - prompt-07-paperj: only_in_results
+
+📁 BPI2016-V31:
+  📊 Summary: 0 identical, 7 different, 4 missing
+  🔄 Different files:
+    - prompt-01-baseline: 93.2% similar
+      Sample differences:
+        --- results/005_prompt-01-baseline.txt_SQL.txt
+        +++ best_new_results/003_prompt-01-baseline.txt_SQL.txt
+        -SELECT "CustomerID" AS "case_id", 'Click_Logged_In' AS "activity_id", CAST("ClickTimestamp" AS VARCHAR) AS "timestamp" FROM "BPI2016_Clicks_Logged_In"
+        +SELECT "CustomerID" AS "case_id", "PAGE_NAME" AS "activity_id", CAST("ClickTimestamp" AS VARCHAR) AS "timestamp" FROM "BPI2016_Clicks_Logged_In"
+        ... and 12 more differences
+    - prompt-02-persona: 81.4% similar
+      Sample differences:
+        --- results/001_prompt-02-persona.txt_SQL.txt
+        +++ best_new_results/001_prompt-02-persona.txt_SQL.txt
+        -SELECT
+        -    "CustomerID" AS "case_id",
+        ... and 32 more differences
+    - prompt-03-few-shot-example: 87.5% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT
+        -    "CustomerID" AS "case_id",
+        ... and 37 more differences
+    - prompt-04-chain-of-thought: 75.6% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT
+        -    "CustomerID" AS "case_id",
+        ... and 37 more differences
+    - prompt-05-tree-of-thought: 75.5% similar
+      Sample differences:
+        --- results/005_prompt-05-tree-of-thought.txt_SQL.txt
+        +++ best_new_results/002_prompt-05-tree-of-thought.txt_SQL.txt
+        -SELECT
+        -    "CustomerID" AS "case_id",
+        ... and 37 more differences
+    - prompt-06-processmining-knowledge: 42.2% similar
+      Sample differences:
+        --- results/004_prompt-06-processmining-knowledge.txt_SQL.txt
+        +++ best_new_results/002_prompt-06-processmining-knowledge.txt_SQL.txt
+        ... and 26 more differences
+    - prompt-07-BPI2016: 35.9% similar
+      Sample differences:
+        --- results/001_prompt-07-BPI2016.txt_SQL.txt
+        +++ best_new_results/001_prompt-07-BPI2016.txt_SQL.txt
+        -SELECT DISTINCT
+        -    "CustomerID" AS "case_id",
+        ... and 78 more differences
+  ⚠️  Missing files:
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-paperj: only_in_results
+    - prompt-07-paperj: only_in_results
+
+📁 UWV-V06:
+  📊 Summary: 4 identical, 3 different, 4 missing
+  🔄 Different files:
+    - prompt-03-few-shot-example: 57.8% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT "CaseID" AS "case_id", 'order' AS "activity_id", CAST("EventDateTime" AS VARCHAR) AS "timestamp"
+        -FROM "T200"
+        ... and 8 more differences
+    - prompt-04-chain-of-thought: 75.3% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT "CaseID" AS "case_id", "EventID" AS "activity_id", CAST("EventDateTime" AS VARCHAR) AS "timestamp"
+        +SELECT "T200"."CaseID" AS "case_id", "T200"."EventID" AS "activity_id", CAST("T200"."EventDateTime" AS VARCHAR) AS "timestamp"
+        ... and 5 more differences
+    - prompt-07-UWV: 54.1% similar
+      Sample differences:
+        --- results/001_prompt-07-UWV.txt_SQL.txt
+        +++ best_new_results/001_prompt-07-UWV.txt_SQL.txt
+        -    "CaseID" AS "case_id",
+        ... and 29 more differences
+  ⚠️  Missing files:
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-paperj: only_in_results
+    - prompt-07-paperj: only_in_results
+
+📁 P2P-V63:
+  📊 Summary: 2 identical, 5 different, 4 missing
+  🔄 Different files:
+    - prompt-02-persona: 89.1% similar
+      Sample differences:
+        --- results/001_prompt-02-persona.txt_SQL.txt
+        +++ best_new_results/001_prompt-02-persona.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order_creation' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+        +SELECT "order"."id" AS "case_id", 'order_created' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+        ... and 15 more differences
+    - prompt-03-few-shot-example: 73.4% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        -FROM "order"
+        ... and 11 more differences
+    - prompt-04-chain-of-thought: 60.5% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT "order_id" AS "case_id", 'click' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "click"
+        +SELECT "order"."id" AS "case_id", 'order_creation' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+        ... and 15 more differences
+    - prompt-05-tree-of-thought: 62.4% similar
+      Sample differences:
+        --- results/005_prompt-05-tree-of-thought.txt_SQL.txt
+        +++ best_new_results/002_prompt-05-tree-of-thought.txt_SQL.txt
+        -SELECT "order_id" AS "case_id", 'invoice_created' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "invoice"
+        +SELECT "order"."id" AS "case_id", 'order_creation' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+        ... and 15 more differences
+    - prompt-06-processmining-knowledge: 62.8% similar
+      Sample differences:
+        --- results/004_prompt-06-processmining-knowledge.txt_SQL.txt
+        +++ best_new_results/002_prompt-06-processmining-knowledge.txt_SQL.txt
+        -                COALESCE("click"."mouse_state", "configuration"."config_prop", 'invoice', 'order', 'payment', 'shipment') AS "activity_id",
+        ... and 17 more differences
+  ⚠️  Missing files:
+    - prompt-07-P2P: only_in_results
+    - prompt-07-P2P: only_in_results
+    - prompt-07-UWV: only_in_results
+    - prompt-07-paperj: only_in_results
+
+📁 ERP-V019:
+  📊 Summary: 1 identical, 6 different, 10 missing
+  🔄 Different files:
+    - prompt-01-baseline: 98.8% similar
+      Sample differences:
+        --- results/005_prompt-01-baseline.txt_SQL.txt
+        +++ best_new_results/003_prompt-01-baseline.txt_SQL.txt
+        -SELECT "customer"."id" AS "case_id", 'Order Creation' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        +SELECT "customer"."id" AS "case_id", 'Order Created' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        ... and 7 more differences
+    - prompt-03-few-shot-example: 99.4% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        -FROM "order"
+        ... and 16 more differences
+    - prompt-04-chain-of-thought: 98.6% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT
+        -    "customer"."id" AS "case_id",
+        ... and 13 more differences
+    - prompt-05-tree-of-thought: 53.0% similar
+      Sample differences:
+        --- results/008_prompt-05-tree-of-thought.txt_SQL.txt
+        +++ best_new_results/002_prompt-05-tree-of-thought.txt_SQL.txt
+        -SELECT "customer" AS "case_id", 'Order Created' AS "activity_id", CAST("creation_date" AS TEXT) AS "timestamp" FROM "order"
+        +SELECT "customer" AS "case_id", 'Order Creation' AS "activity_id", CAST("creation_date" AS TEXT) AS "timestamp" FROM "order"
+        ... and 7 more differences
+    - prompt-06-processmining-knowledge: 36.2% similar
+      Sample differences:
+        --- results/006_prompt-06-processmining-knowledge.txt_SQL.txt
+        +++ best_new_results/002_prompt-06-processmining-knowledge.txt_SQL.txt
+        -SELECT DISTINCT "customer" AS "case_id", "order"."creation_date" AS "timestamp", 'order_creation_date' AS "activity_id" FROM "order"
+        +SELECT DISTINCT
+        ... and 17 more differences
+    - prompt-07-paperj: 97.7% similar
+      Sample differences:
+        --- results/001_prompt-07-paperj.txt_SQL.txt
+        +++ best_new_results/001_prompt-07-paperj.txt_SQL.txt
+        -SELECT DISTINCT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        -FROM "order"
+        ... and 7 more differences
+  ⚠️  Missing files:
+    - prompt-07-ERP: only_in_results
+    - prompt-07-ERP: only_in_results
+    - prompt-07-P2P: only_in_results
+    - prompt-07-P2P: only_in_results
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-UWV: only_in_results
+
+📁 ERP-V209:
+  📊 Summary: 1 identical, 6 different, 2 missing
+  🔄 Different files:
+    - prompt-01-baseline: 44.5% similar
+      Sample differences:
+        --- results/003_prompt-01-baseline.txt_SQL.txt
+        +++ best_new_results/002_prompt-01-baseline.txt_SQL.txt
+        -SELECT
+        -    "order"."id" AS "case_id",
+        ... and 22 more differences
+    - prompt-02-persona: 50.4% similar
+      Sample differences:
+        --- results/001_prompt-02-persona.txt_SQL.txt
+        +++ best_new_results/001_prompt-02-persona.txt_SQL.txt
+        -SELECT
+        -    "element_relation"."id" AS "case_id",
+        ... and 17 more differences
+    - prompt-03-few-shot-example: 85.1% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        ... and 8 more differences
+    - prompt-04-chain-of-thought: 95.5% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/001_prompt-04-chain-of-thought.txt_SQL.txt
+        ... and 14 more differences
+    - prompt-06-processmining-knowledge: 95.4% similar
+      Sample differences:
+        --- results/004_prompt-06-processmining-knowledge.txt_SQL.txt
+        +++ best_new_results/002_prompt-06-processmining-knowledge.txt_SQL.txt
+        ... and 13 more differences
+    - prompt-07-paperj: 97.1% similar
+      Sample differences:
+        --- results/001_prompt-07-paperj.txt_SQL.txt
+        +++ best_new_results/001_prompt-07-paperj.txt_SQL.txt
+        -SELECT DISTINCT
+        -    "order"."id" AS "case_id",
+        ... and 19 more differences
+  ⚠️  Missing files:
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-UWV: only_in_results
+
+📁 P2P-V15:
+  📊 Summary: 2 identical, 5 different, 2 missing
+  🔄 Different files:
+    - prompt-01-baseline: 49.0% similar
+      Sample differences:
+        --- results/003_prompt-01-baseline.txt_SQL.txt
+        +++ best_new_results/002_prompt-01-baseline.txt_SQL.txt
+        -SELECT
+        -    "order"."id" AS "case_id",
+        ... and 25 more differences
+    - prompt-02-persona: 53.0% similar
+      Sample differences:
+        --- results/001_prompt-02-persona.txt_SQL.txt
+        +++ best_new_results/001_prompt-02-persona.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order_creation' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+        +SELECT "order_id" AS "case_id", 'invoice_created' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "invoice"
+        ... and 9 more differences
+    - prompt-03-few-shot-example: 68.8% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        -FROM "order"
+        ... and 14 more differences
+    - prompt-04-chain-of-thought: 55.4% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/001_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order_creation' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        -FROM "order"
+        ... and 13 more differences
+    - prompt-06-processmining-knowledge: 21.4% similar
+      Sample differences:
+        --- results/004_prompt-06-processmining-knowledge.txt_SQL.txt
+        +++ best_new_results/002_prompt-06-processmining-knowledge.txt_SQL.txt
+        -                'invoice' AS "activity_id",
+        ... and 26 more differences
+  ⚠️  Missing files:
+    - prompt-07-UWV: only_in_results
+    - prompt-07-paperj: only_in_results
+
+📁 BPI2016-V24:
+  📊 Summary: 1 identical, 6 different, 2 missing
+  🔄 Different files:
+    - prompt-01-baseline: 94.0% similar
+      Sample differences:
+        --- results/003_prompt-01-baseline.txt_SQL.txt
+        +++ best_new_results/002_prompt-01-baseline.txt_SQL.txt
+        -SELECT
+        -    "SessionID" AS "case_id",
+        ... and 12 more differences
+    - prompt-02-persona: 94.0% similar
+      Sample differences:
+        --- results/001_prompt-02-persona.txt_SQL.txt
+        +++ best_new_results/001_prompt-02-persona.txt_SQL.txt
+        -SELECT
+        -    "SessionID" AS "case_id",
+        ... and 12 more differences
+    - prompt-03-few-shot-example: 83.5% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT
+        -    "CustomerID" AS "case_id",
+        ... and 12 more differences
+    - prompt-04-chain-of-thought: 94.0% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/001_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT
+        -    "SessionID" AS "case_id",
+        ... and 12 more differences
+    - prompt-06-processmining-knowledge: 95.5% similar
+      Sample differences:
+        --- results/004_prompt-06-processmining-knowledge.txt_SQL.txt
+        +++ best_new_results/002_prompt-06-processmining-knowledge.txt_SQL.txt
+        +SELECT DISTINCT "SessionID" AS "case_id",
+        +                COALESCE("page_action_detail", "BPI2016_Clicks_Logged_In") AS "activity_id",
+        ... and 13 more differences
+    - prompt-07-BPI2016: 98.1% similar
+      Sample differences:
+        --- results/001_prompt-07-BPI2016.txt_SQL.txt
+        +++ best_new_results/001_prompt-07-BPI2016.txt_SQL.txt
+        -SELECT DISTINCT
+        -    "CustomerID" AS "case_id",
+        ... and 30 more differences
+  ⚠️  Missing files:
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-paperj: only_in_results
+
+📁 UWV-V22:
+  📊 Summary: 2 identical, 5 different, 2 missing
+  🔄 Different files:
+    - prompt-03-few-shot-example: 75.7% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT
+        -    "CaseID" AS "case_id",
+        ... and 67 more differences
+    - prompt-04-chain-of-thought: 82.5% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/001_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT
+        -    "CaseID" AS "case_id",
+        ... and 67 more differences
+    - prompt-05-tree-of-thought: 100.0% similar
+      Sample differences:
+        --- results/004_prompt-05-tree-of-thought.txt_SQL.txt
+        +++ best_new_results/002_prompt-05-tree-of-thought.txt_SQL.txt
+        ... and 3 more differences
+    - prompt-06-processmining-knowledge: 24.3% similar
+      Sample differences:
+        --- results/004_prompt-06-processmining-knowledge.txt_SQL.txt
+        +++ best_new_results/002_prompt-06-processmining-knowledge.txt_SQL.txt
+        -    CAST(COALESCE(T200."CaseID", T300."CaseID", T500."CaseID") AS VARCHAR) AS "case_id",
+        ... and 89 more differences
+    - prompt-07-UWV: 70.7% similar
+      Sample differences:
+        --- results/001_prompt-07-UWV.txt_SQL.txt
+        +++ best_new_results/001_prompt-07-UWV.txt_SQL.txt
+        -SELECT
+        -    "CaseID" AS "case_id",
+        ... and 121 more differences
+  ⚠️  Missing files:
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-paperj: only_in_results
+
+📁 P2P-V03:
+  📊 Summary: 2 identical, 5 different, 2 missing
+  🔄 Different files:
+    - prompt-01-baseline: 58.6% similar
+      Sample differences:
+        --- results/003_prompt-01-baseline.txt_SQL.txt
+        +++ best_new_results/002_prompt-01-baseline.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order_created' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        -FROM "order"
+        ... and 5 more differences
+    - prompt-02-persona: 89.9% similar
+      Sample differences:
+        --- results/001_prompt-02-persona.txt_SQL.txt
+        +++ best_new_results/001_prompt-02-persona.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order_creation' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        -FROM "order"
+        ... and 5 more differences
+    - prompt-03-few-shot-example: 78.8% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        -FROM "order"
+        ... and 7 more differences
+    - prompt-04-chain-of-thought: 44.1% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/001_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'order_created' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+        -FROM "order"
+        ... and 4 more differences
+    - prompt-07-RunningExample: 99.8% similar
+      Sample differences:
+        --- results/004_prompt-07-RunningExample.txt_SQL.txt
+        +++ best_new_results/002_prompt-07-RunningExample.txt_SQL.txt
+        ... and 3 more differences
+  ⚠️  Missing files:
+    - prompt-07-UWV: only_in_results
+    - prompt-07-paperj: only_in_results
+
+📁 ERP-V511:
+  📊 Summary: 0 identical, 7 different, 2 missing
+  🔄 Different files:
+    - prompt-01-baseline: 94.7% similar
+      Sample differences:
+        --- results/003_prompt-01-baseline.txt_SQL.txt
+        +++ best_new_results/002_prompt-01-baseline.txt_SQL.txt
+        ... and 33 more differences
+    - prompt-02-persona: 78.4% similar
+      Sample differences:
+        --- results/001_prompt-02-persona.txt_SQL.txt
+        +++ best_new_results/001_prompt-02-persona.txt_SQL.txt
+        -SELECT
+        -    "order"."id" AS "case_id",
+        ... and 25 more differences
+    - prompt-03-few-shot-example: 40.8% similar
+      Sample differences:
+        --- results/001_prompt-03-few-shot-example.txt_SQL.txt
+        +++ best_new_results/001_prompt-03-few-shot-example.txt_SQL.txt
+        -SELECT
+        -    "order"."id" AS "case_id",
+        ... and 15 more differences
+    - prompt-04-chain-of-thought: 50.7% similar
+      Sample differences:
+        --- results/003_prompt-04-chain-of-thought.txt_SQL.txt
+        +++ best_new_results/001_prompt-04-chain-of-thought.txt_SQL.txt
+        -SELECT
+        -    "order"."id" AS "case_id",
+        ... and 25 more differences
+    - prompt-05-tree-of-thought: 82.6% similar
+      Sample differences:
+        --- results/004_prompt-05-tree-of-thought.txt_SQL.txt
+        +++ best_new_results/002_prompt-05-tree-of-thought.txt_SQL.txt
+        -SELECT "order"."id" AS "case_id", 'Order Created' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+        +SELECT
+        ... and 29 more differences
+    - prompt-06-processmining-knowledge: 69.5% similar
+      Sample differences:
+        --- results/004_prompt-06-processmining-knowledge.txt_SQL.txt
+        +++ best_new_results/002_prompt-06-processmining-knowledge.txt_SQL.txt
+        ... and 48 more differences
+    - prompt-07-paperj: 98.2% similar
+      Sample differences:
+        --- results/001_prompt-07-paperj.txt_SQL.txt
+        +++ best_new_results/001_prompt-07-paperj.txt_SQL.txt
+        -SELECT DISTINCT
+        -    "order"."id" AS "case_id",
+        ... and 33 more differences
+  ⚠️  Missing files:
+    - prompt-07-RunningExample: only_in_results
+    - prompt-07-UWV: only_in_results
+
+💾 Saving CSV report to: sql_comparison_report.csv
+✅ CSV report saved successfully
+
+🎉 Comparison complete! Check the CSV report for detailed results.

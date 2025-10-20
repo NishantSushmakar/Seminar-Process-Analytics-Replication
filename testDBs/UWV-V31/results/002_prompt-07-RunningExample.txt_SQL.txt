@@ -1,0 +1,21 @@
+SELECT "T100"."CaseID" AS "case_id", 'T100' AS "activity_id", CAST("T100"."EventDateTime" AS VARCHAR) AS "timestamp" FROM "T100"
+UNION ALL
+SELECT "T200"."CaseID" AS "case_id", 'T200' AS "activity_id", CAST("T200"."EventDateTime" AS VARCHAR) AS "timestamp" FROM "T200"
+UNION ALL
+SELECT "T300"."CaseID" AS "case_id", 'T300' AS "activity_id", CAST("T300"."EventDate" AS VARCHAR) AS "timestamp" FROM "T300"
+UNION ALL
+SELECT "T400"."CaseID" AS "case_id", 'T400' AS "activity_id", CAST("T400"."EventID_400" AS VARCHAR) AS "timestamp" FROM "T400"
+UNION ALL
+SELECT "T500"."CaseID" AS "case_id", 'EventID_501' AS "activity_id", CAST("T500"."EventID_501" AS VARCHAR) AS "timestamp" FROM "T500"
+UNION ALL
+SELECT "T500"."CaseID" AS "case_id", 'EventID_502' AS "activity_id", CAST("T500"."EventID_502" AS VARCHAR) AS "timestamp" FROM "T500"
+UNION ALL
+SELECT "T500"."CaseID" AS "case_id", 'EventID_503' AS "activity_id", CAST("T500"."EventID_503" AS VARCHAR) AS "timestamp" FROM "T500"
+UNION ALL
+SELECT "T500"."CaseID" AS "case_id", 'EventID_504' AS "activity_id", CAST("T500"."EventID_504" AS VARCHAR) AS "timestamp" FROM "T500"
+UNION ALL
+SELECT "T500"."CaseID" AS "case_id", 'EventID_505' AS "activity_id", CAST("T500"."EventID_505" AS VARCHAR) AS "timestamp" FROM "T500"
+UNION ALL
+SELECT "T500"."CaseID" AS "case_id", 'EventID_506' AS "activity_id", CAST("T500"."EventID_506" AS VARCHAR) AS "timestamp" FROM "T500"
+UNION ALL
+SELECT "T500"."CaseID" AS "case_id", 'EventID_507' AS "activity_id", CAST("T500"."EventID_507" AS VARCHAR) AS "timestamp" FROM "T500"

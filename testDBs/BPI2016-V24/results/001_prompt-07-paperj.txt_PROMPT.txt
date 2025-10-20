@@ -1,0 +1,20 @@
+Consider the following db schema: TABLE BPI2016_Clicks_Logged_In:
+CREATE TABLE "BPI2016_Clicks_Logged_In" ("CustomerID" TEXT, "AgeCategory" TEXT, "Gender" TEXT, "Office_U" TEXT, "Office_W" TEXT, "SessionID" TEXT, "IPID" TEXT, "ClickTimestamp" DATETIME, "VHOST" TEXT, "URL_FILE" TEXT, "PAGE_NAME" TEXT, "REF_URL_category" TEXT, "page_load_error" TEXT, "page_action_detail" TEXT, "tip" TEXT, "service_detail" TEXT, "xps_info" TEXT, "page_action_detail_EN" TEXT, "service_detail_EN" TEXT, "tip_EN" TEXT, PRIMARY KEY ("CustomerID", "ClickTimestamp"));
+
+TABLE BPI2016_Clicks_NOT_Logged_In:
+CREATE TABLE "BPI2016_Clicks_NOT_Logged_In" ("SessionID" TEXT, "IPID" TEXT, "ClickTimestamp" DATETIME, "VHOST" TEXT, "URL_FILE" TEXT, "PAGE_NAME" TEXT, "REF_URL_category" TEXT, "page_load_error" TEXT, "page_action_detail" TEXT, "tip" TEXT, "service_detail" TEXT, "xps_info" TEXT, "page_action_detail_EN" TEXT, "service_detail_EN" TEXT, "tip_EN" TEXT, PRIMARY KEY ("SessionID", "ClickTimestamp"));
+Try to use only and as much of the tables that are part of the db schema defined in the prompt.
+
+The order table, shipment table, invoice table and payment table contain events for the eventlog.
+The element_relation table, the order_line table and the shipment_line table do not contain events for the eventlog. 
+Never use the configuration table and never use the click table.
+
+If the order table is present in the db schema, then use the id as the case_id.
+If the shipment table is present in the db schema, then join the shipment table with the shipment_line table and the order_line_table. Use the "order" column from the order_line table as the case_id for the shipment events.
+If the invoice table is present in the db schema, then join the invoice table with the element_relation table. Use the "order" column from the element_relation table as the case_id for the invoice events.
+If the payment table is present in the db schema, then join the payment table with the payment_line table and the element_relation table. Use the "order" column from the element_relation table as the case_id for the payment events.
+
+Use the name of the table as the activty_id.
+Do not use the customer column as case_id.
+
+Remove duplicate records.Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

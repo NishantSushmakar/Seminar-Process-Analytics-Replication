@@ -1,0 +1,1 @@
+{'precision': 1.0, 'recall': 0.545, 'f1': 0.706, 'relaxed_precision': 1.0, 'relaxed_recall': 0.706, 'relaxed_f1': 0.828, 'textual_precision': 1.0, 'textual_recall': 0.444, 'textual_f1': 0.615}

@@ -1,0 +1,17 @@
+SELECT "order"."id" AS "case_id", 
+       'invoice_creation_date' AS "activity_id", 
+       CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "invoice"
+JOIN "order" ON "invoice"."order_id" = "order"."id"
+WHERE "invoice"."id" IS NOT NULL 
+  AND "invoice"."order_id" IS NOT NULL 
+  AND "invoice"."creation_date" IS NOT NULL 
+  AND "order"."id" IS NOT NULL 
+  AND "order"."creation_date" IS NOT NULL
+UNION ALL
+SELECT "order"."id" AS "case_id", 
+       'order_creation_date' AS "activity_id", 
+       CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "order"
+WHERE "order"."id" IS NOT NULL 
+  AND "order"."creation_date" IS NOT NULL;

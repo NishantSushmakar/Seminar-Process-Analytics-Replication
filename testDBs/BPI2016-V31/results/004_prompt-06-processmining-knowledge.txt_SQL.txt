@@ -1,0 +1,34 @@
+SELECT DISTINCT 
+    CAST("CustomerID" AS VARCHAR) AS "case_id",
+    CAST(COALESCE("page_action_detail", "ComplaintTheme", "QuestionTheme", "EventType", 'BPI2016_Clicks_NOT_Logged_In') AS VARCHAR) AS "activity_id",
+    CAST(COALESCE("ClickTimestamp", "ComplaintDate", "QuestionTimestampStart", "WerkmapTimestamp") AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Clicks_Logged_In"
+UNION
+SELECT DISTINCT 
+    CAST("CustomerID" AS VARCHAR) AS "case_id",
+    CAST(COALESCE("page_action_detail", "ComplaintTheme", "QuestionTheme", "EventType", 'BPI2016_Clicks_NOT_Logged_In') AS VARCHAR) AS "activity_id",
+    CAST(COALESCE("ClickTimestamp", "ComplaintDate", "QuestionTimestampStart", "WerkmapTimestamp") AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Complaints"
+UNION
+SELECT DISTINCT 
+    CAST("CustomerID" AS VARCHAR) AS "case_id",
+    CAST(COALESCE("page_action_detail", "ComplaintTheme", "QuestionTheme", "EventType", 'BPI2016_Clicks_NOT_Logged_In') AS VARCHAR) AS "activity_id",
+    CAST(COALESCE("ClickTimestamp", "ComplaintDate", "QuestionTimestampStart", "WerkmapTimestamp") AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Questions"
+UNION
+SELECT DISTINCT 
+    CAST("CustomerID" AS VARCHAR) AS "case_id",
+    CAST(COALESCE("page_action_detail", "ComplaintTheme", "QuestionTheme", "EventType", 'BPI2016_Clicks_NOT_Logged_In') AS VARCHAR) AS "activity_id",
+    CAST(COALESCE("ClickTimestamp", "ComplaintDate", "QuestionTimestampStart", "WerkmapTimestamp") AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Werkmap_Messages"
+UNION
+SELECT DISTINCT 
+    CAST("SessionID" AS VARCHAR) AS "case_id",
+    CAST('BPI2016_Clicks_NOT_Logged_In' AS VARCHAR) AS "activity_id",
+    CAST("ClickTimestamp" AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Clicks_NOT_Logged_In";

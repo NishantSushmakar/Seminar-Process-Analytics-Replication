@@ -1,0 +1,23 @@
+"SQL_ERROR: DatabaseError: Execution failed on sql 'SELECT DISTINCT ""order"".""id"" AS ""case_id"", 
+                ""activity_id"", 
+                CAST(""timestamp"" AS VARCHAR) AS ""timestamp""
+FROM (
+    SELECT ""order"".""id"", 
+           ""invoice"".""id"" AS ""activity_id"", 
+           ""invoice"".""creation_date"" AS ""timestamp""
+    FROM ""order""
+    JOIN ""invoice"" ON ""order"".""id"" = ""invoice"".""order_id""
+    UNION
+    SELECT ""order"".""id"", 
+           ""payment"".""id"" AS ""activity_id"", 
+           ""payment"".""creation_date"" AS ""timestamp""
+    FROM ""order""
+    JOIN ""invoice"" ON ""order"".""id"" = ""invoice"".""order_id""
+    JOIN ""payment"" ON ""invoice"".""id"" = ""payment"".""invoice_id""
+    UNION
+    SELECT ""order"".""id"", 
+           ""shipment"".""id"" AS ""activity_id"", 
+           ""shipment"".""creation_date"" AS ""timestamp""
+    FROM ""order""
+    JOIN ""shipment"" ON ""order"".""id"" = ""shipment"".""order_id""
+) AS events;': no such column: order.id"

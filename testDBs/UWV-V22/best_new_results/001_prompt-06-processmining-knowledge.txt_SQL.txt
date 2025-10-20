@@ -1,0 +1,60 @@
+SELECT DISTINCT 
+    CAST("T200"."CaseID" AS VARCHAR) AS "case_id", 
+    CAST("T200"."EventID" AS VARCHAR) AS "activity_id", 
+    CAST("T200"."EventDateTime" AS VARCHAR) AS "timestamp"
+FROM "T200"
+UNION
+SELECT DISTINCT 
+    CAST("T300"."CaseID" AS VARCHAR) AS "case_id", 
+    CAST("T300"."EventID" AS VARCHAR) AS "activity_id", 
+    CAST("T300"."EventDate" AS VARCHAR) AS "timestamp"
+FROM "T300"
+UNION
+SELECT DISTINCT 
+    CAST("T500"."CaseID" AS VARCHAR) AS "case_id", 
+    CAST('T500_EventID_501' AS VARCHAR) AS "activity_id", 
+    CAST("T500"."EventID_501" AS VARCHAR) AS "timestamp"
+FROM "T500"
+WHERE "T500"."EventID_501" IS NOT NULL
+UNION
+SELECT DISTINCT 
+    CAST("T500"."CaseID" AS VARCHAR) AS "case_id", 
+    CAST('T500_EventID_502' AS VARCHAR) AS "activity_id", 
+    CAST("T500"."EventID_502" AS VARCHAR) AS "timestamp"
+FROM "T500"
+WHERE "T500"."EventID_502" IS NOT NULL
+UNION
+SELECT DISTINCT 
+    CAST("T500"."CaseID" AS VARCHAR) AS "case_id", 
+    CAST('T500_EventID_503' AS VARCHAR) AS "activity_id", 
+    CAST("T500"."EventID_503" AS VARCHAR) AS "timestamp"
+FROM "T500"
+WHERE "T500"."EventID_503" IS NOT NULL
+UNION
+SELECT DISTINCT 
+    CAST("T500"."CaseID" AS VARCHAR) AS "case_id", 
+    CAST('T500_EventID_504' AS VARCHAR) AS "activity_id", 
+    CAST("T500"."EventID_504" AS VARCHAR) AS "timestamp"
+FROM "T500"
+WHERE "T500"."EventID_504" IS NOT NULL
+UNION
+SELECT DISTINCT 
+    CAST("T500"."CaseID" AS VARCHAR) AS "case_id", 
+    CAST('T500_EventID_505' AS VARCHAR) AS "activity_id", 
+    CAST("T500"."EventID_505" AS VARCHAR) AS "timestamp"
+FROM "T500"
+WHERE "T500"."EventID_505" IS NOT NULL
+UNION
+SELECT DISTINCT 
+    CAST("T500"."CaseID" AS VARCHAR) AS "case_id", 
+    CAST('T500_EventID_506' AS VARCHAR) AS "activity_id", 
+    CAST("T500"."EventID_506" AS VARCHAR) AS "timestamp"
+FROM "T500"
+WHERE "T500"."EventID_506" IS NOT NULL
+UNION
+SELECT DISTINCT 
+    CAST("T500"."CaseID" AS VARCHAR) AS "case_id", 
+    CAST('T500_EventID_507' AS VARCHAR) AS "activity_id", 
+    CAST("T500"."EventID_507" AS VARCHAR) AS "timestamp"
+FROM "T500"
+WHERE "T500"."EventID_507" IS NOT NULL;

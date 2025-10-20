@@ -1,0 +1,1 @@
+SELECT "T200"."CaseID" AS "case_id", "T200"."EventID" AS "activity_id", CAST("T200"."EventDateTime" AS VARCHAR) AS "timestamp" FROM "T200" UNION SELECT "T300"."CaseID" AS "case_id", "T300"."EventID" AS "activity_id", CAST("T300"."EventDate" AS VARCHAR) AS "timestamp" FROM "T300";

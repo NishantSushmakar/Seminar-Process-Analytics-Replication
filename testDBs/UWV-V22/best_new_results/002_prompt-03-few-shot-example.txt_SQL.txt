@@ -1,0 +1,17 @@
+SELECT "CaseID" AS "case_id", 'T200_Event' AS "activity_id", CAST("EventDateTime" AS VARCHAR) AS "timestamp" FROM "T200"
+UNION ALL
+SELECT "CaseID" AS "case_id", 'T300_Event' AS "activity_id", CAST("EventDate" AS VARCHAR) AS "timestamp" FROM "T300"
+UNION ALL
+SELECT "CaseID" AS "case_id", 'T500_Event_501' AS "activity_id", CAST("EventID_501" AS VARCHAR) AS "timestamp" FROM "T500" WHERE "EventID_501" IS NOT NULL
+UNION ALL
+SELECT "CaseID" AS "case_id", 'T500_Event_502' AS "activity_id", CAST("EventID_502" AS VARCHAR) AS "timestamp" FROM "T500" WHERE "EventID_502" IS NOT NULL
+UNION ALL
+SELECT "CaseID" AS "case_id", 'T500_Event_503' AS "activity_id", CAST("EventID_503" AS VARCHAR) AS "timestamp" FROM "T500" WHERE "EventID_503" IS NOT NULL
+UNION ALL
+SELECT "CaseID" AS "case_id", 'T500_Event_504' AS "activity_id", CAST("EventID_504" AS VARCHAR) AS "timestamp" FROM "T500" WHERE "EventID_504" IS NOT NULL
+UNION ALL
+SELECT "CaseID" AS "case_id", 'T500_Event_505' AS "activity_id", CAST("EventID_505" AS VARCHAR) AS "timestamp" FROM "T500" WHERE "EventID_505" IS NOT NULL
+UNION ALL
+SELECT "CaseID" AS "case_id", 'T500_Event_506' AS "activity_id", CAST("EventID_506" AS VARCHAR) AS "timestamp" FROM "T500" WHERE "EventID_506" IS NOT NULL
+UNION ALL
+SELECT "CaseID" AS "case_id", 'T500_Event_507' AS "activity_id", CAST("EventID_507" AS VARCHAR) AS "timestamp" FROM "T500" WHERE "EventID_507" IS NOT NULL;

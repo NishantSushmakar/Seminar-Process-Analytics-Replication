@@ -1,0 +1,20 @@
+SELECT 
+    "CustomerID" AS "case_id", 
+    "ComplaintTheme_EN" AS "activity_id", 
+    CAST("ComplaintDate" AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Complaints"
+UNION ALL
+SELECT 
+    "CustomerID" AS "case_id", 
+    "QuestionTheme_EN" AS "activity_id", 
+    CAST("QuestionTimestampStart" AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Questions"
+UNION ALL
+SELECT 
+    "CustomerID" AS "case_id", 
+    "EventType" AS "activity_id", 
+    CAST("WerkmapTimestamp" AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Werkmap_Messages";

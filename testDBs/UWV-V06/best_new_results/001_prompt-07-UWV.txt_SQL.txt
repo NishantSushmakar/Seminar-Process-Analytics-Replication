@@ -1,0 +1,23 @@
+SELECT 
+    "T200"."CaseID" AS "case_id", 
+    COALESCE("T200"."EventID", 'T200_EventDateTime') AS "activity_id", 
+    CAST("T200"."EventDateTime" AS VARCHAR) AS "timestamp"
+FROM 
+    "T200"
+WHERE 
+    "T200"."CaseID" IS NOT NULL 
+    AND "T200"."EventDateTime" IS NOT NULL 
+    AND "T200"."EventID" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "T300"."CaseID" AS "case_id", 
+    "T300"."EventID" AS "activity_id", 
+    CAST("T300"."EventDate" AS VARCHAR) AS "timestamp"
+FROM 
+    "T300"
+WHERE 
+    "T300"."CaseID" IS NOT NULL 
+    AND "T300"."EventDate" IS NOT NULL 
+    AND "T300"."EventID" IS NOT NULL;

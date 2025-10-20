@@ -1,0 +1,27 @@
+Consider the following db schema: TABLE invoice:
+CREATE TABLE "invoice" ("id" TEXT, "order_id" TEXT, "creation_date" DATETIME, PRIMARY KEY ("id"), FOREIGN KEY ("order_id") REFERENCES "order"("id"));
+
+TABLE order:
+CREATE TABLE "order" ("id" TEXT, "creation_date" DATETIME, PRIMARY KEY ("id"));
+
+TABLE payment:
+CREATE TABLE "payment" ("id" TEXT, "invoice_id" TEXT, "creation_date" DATETIME, PRIMARY KEY ("id"), FOREIGN KEY ("invoice_id") REFERENCES "invoice"("id"));
+
+TABLE shipment:
+CREATE TABLE "shipment" ("id" TEXT, "order_id" TEXT, "creation_date" DATETIME, PRIMARY KEY ("id"), FOREIGN KEY ("order_id") REFERENCES "order"("id"));
+Each record in each table represents at least one event.
+
+From the T100 table, the T200 table and the T300 table use the EventID column as activity_id.
+
+When a table contains one column containing a datetime format and no other column that contains the name of the event, 
+    then and only then concatenate the name of the table and the name of the column and use this as the value in the activity_id column.
+
+When a table contains multiple columns containing a datetime format, then each of these datetime values is an event.
+When a table contains multiple columns containing a datetime format,
+    for each of these columns concatenate the name of the table and the the name of the column, adding an underscore, and use this as the value in the activity_id column. 
+
+Use the column that occurs in the most tables and that is not used as timestamp or activity_id as the case notion.
+When a table does not have a column that contains the selected case notion, combine the necessary tables to obtain this case notion.
+
+If a value in the table is empty or NULL leave out the whole record.
+Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

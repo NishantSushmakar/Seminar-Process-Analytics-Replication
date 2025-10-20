@@ -1,0 +1,9 @@
+SELECT DISTINCT CAST("CustomerID" AS VARCHAR) AS "case_id", CAST("ComplaintTopic_EN" AS VARCHAR) AS "activity_id", CAST("ComplaintDate" AS VARCHAR) AS "timestamp" FROM "BPI2016_Complaints" WHERE "CustomerID" IS NOT NULL AND "ComplaintTopic_EN" IS NOT NULL AND "ComplaintDate" IS NOT NULL
+UNION
+SELECT DISTINCT CAST("CustomerID" AS VARCHAR) AS "case_id", CAST("PAGE_NAME" AS VARCHAR) AS "activity_id", CAST("ClickTimestamp" AS VARCHAR) AS "timestamp" FROM "BPI2016_Clicks_Logged_In" WHERE "CustomerID" IS NOT NULL AND "PAGE_NAME" IS NOT NULL AND "ClickTimestamp" IS NOT NULL
+UNION
+SELECT DISTINCT CAST("BPI2016_Clicks_Logged_In"."CustomerID" AS VARCHAR) AS "case_id", CAST("BPI2016_Clicks_NOT_Logged_In"."PAGE_NAME" AS VARCHAR) AS "activity_id", CAST("BPI2016_Clicks_NOT_Logged_In"."ClickTimestamp" AS VARCHAR) AS "timestamp" FROM "BPI2016_Clicks_NOT_Logged_In" JOIN "BPI2016_Clicks_Logged_In" ON "BPI2016_Clicks_NOT_Logged_In"."SessionID" = "BPI2016_Clicks_Logged_In"."SessionID" WHERE "BPI2016_Clicks_Logged_In"."CustomerID" IS NOT NULL AND "BPI2016_Clicks_NOT_Logged_In"."PAGE_NAME" IS NOT NULL AND "BPI2016_Clicks_NOT_Logged_In"."ClickTimestamp" IS NOT NULL
+UNION
+SELECT DISTINCT CAST("CustomerID" AS VARCHAR) AS "case_id", CAST("QuestionTopic_EN" AS VARCHAR) AS "activity_id", CAST("QuestionTimestampStart" AS VARCHAR) AS "timestamp" FROM "BPI2016_Questions" WHERE "CustomerID" IS NOT NULL AND "QuestionTopic_EN" IS NOT NULL AND "QuestionTimestampStart" IS NOT NULL
+UNION
+SELECT DISTINCT CAST("CustomerID" AS VARCHAR) AS "case_id", CAST("EventType" AS VARCHAR) AS "activity_id", CAST("WerkmapTimestamp" AS VARCHAR) AS "timestamp" FROM "BPI2016_Werkmap_Messages" WHERE "CustomerID" IS NOT NULL AND "EventType" IS NOT NULL AND "WerkmapTimestamp" IS NOT NULL;

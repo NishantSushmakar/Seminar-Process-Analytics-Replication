@@ -1,0 +1,19 @@
+Consider the following db schema: TABLE click:
+CREATE TABLE "click" ("id" TEXT, "customer_id" TEXT, "mouse_state" TEXT, "creation_date" DATETIME, PRIMARY KEY ("id"));
+
+TABLE configuration:
+CREATE TABLE "configuration" ("id" TEXT, "config_prop" TEXT, "status" TEXT, "date" DATETIME, PRIMARY KEY ("id"));
+
+TABLE invoice:
+CREATE TABLE "invoice" ("id" TEXT, "order_id" TEXT, "creation_date" DATETIME, PRIMARY KEY ("id"), FOREIGN KEY ("order_id") REFERENCES "order"("id"));
+
+TABLE order:
+CREATE TABLE "order" ("id" TEXT, "creation_date" DATETIME, PRIMARY KEY ("id"));
+
+TABLE payment:
+CREATE TABLE "payment" ("id" TEXT, "invoice_id" TEXT, "creation_date" DATETIME, PRIMARY KEY ("id"), FOREIGN KEY ("invoice_id") REFERENCES "invoice"("id"));
+
+TABLE shipment:
+CREATE TABLE "shipment" ("id" TEXT, "order_id" TEXT, "creation_date" DATETIME, PRIMARY KEY ("id"), FOREIGN KEY ("order_id") REFERENCES "order"("id"));
+Considering the input database, take a deep breath, think step-by-step in silence and write an SQL statement that generates an event log from this database with the following columns: case_id, activity_id, timestamp. 
+Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

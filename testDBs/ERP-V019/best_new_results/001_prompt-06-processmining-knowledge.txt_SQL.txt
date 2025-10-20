@@ -1,0 +1,5 @@
+SELECT DISTINCT "customer" AS "case_id", "name" AS "activity_id", CAST(NULL AS VARCHAR) AS "timestamp" FROM "customer"
+UNION
+SELECT DISTINCT "customer" AS "case_id", 'order' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+UNION
+SELECT DISTINCT "customer" AS "case_id", 'shipment' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "shipment";

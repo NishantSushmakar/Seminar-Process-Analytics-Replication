@@ -1,0 +1,11 @@
+SELECT "order"."id" AS "case_id", 'click' AS "activity_id", CAST("click"."creation_date" AS VARCHAR) AS "timestamp" FROM "click" JOIN "order" ON "click"."customer_id" = "order"."id"
+UNION ALL
+SELECT "order"."id" AS "case_id", 'configuration' AS "activity_id", CAST("configuration"."date" AS VARCHAR) AS "timestamp" FROM "configuration" JOIN "order" ON "configuration"."id" = "order"."id"
+UNION ALL
+SELECT "order"."id" AS "case_id", 'invoice' AS "activity_id", CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp" FROM "invoice" JOIN "order" ON "invoice"."order_id" = "order"."id"
+UNION ALL
+SELECT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+UNION ALL
+SELECT "order"."id" AS "case_id", 'payment' AS "activity_id", CAST("payment"."creation_date" AS VARCHAR) AS "timestamp" FROM "payment" JOIN "invoice" ON "payment"."invoice_id" = "invoice"."id" JOIN "order" ON "invoice"."order_id" = "order"."id"
+UNION ALL
+SELECT "order"."id" AS "case_id", 'shipment' AS "activity_id", CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp" FROM "shipment" JOIN "order" ON "shipment"."order_id" = "order"."id";

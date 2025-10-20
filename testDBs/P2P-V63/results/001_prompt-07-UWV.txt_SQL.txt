@@ -1,0 +1,64 @@
+SELECT "order"."id" AS "case_id", 
+       'click_creation_date' AS "activity_id", 
+       CAST("click"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "click"
+JOIN "order" ON "click"."customer_id" = "order"."id"
+WHERE "click"."id" IS NOT NULL 
+  AND "click"."customer_id" IS NOT NULL 
+  AND "click"."mouse_state" IS NOT NULL 
+  AND "click"."creation_date" IS NOT NULL
+
+UNION ALL
+
+SELECT "order"."id" AS "case_id", 
+       'configuration_date' AS "activity_id", 
+       CAST("configuration"."date" AS VARCHAR) AS "timestamp"
+FROM "configuration"
+JOIN "order" ON "configuration"."id" = "order"."id"
+WHERE "configuration"."id" IS NOT NULL 
+  AND "configuration"."config_prop" IS NOT NULL 
+  AND "configuration"."status" IS NOT NULL 
+  AND "configuration"."date" IS NOT NULL
+
+UNION ALL
+
+SELECT "order"."id" AS "case_id", 
+       'invoice_creation_date' AS "activity_id", 
+       CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "invoice"
+JOIN "order" ON "invoice"."order_id" = "order"."id"
+WHERE "invoice"."id" IS NOT NULL 
+  AND "invoice"."order_id" IS NOT NULL 
+  AND "invoice"."creation_date" IS NOT NULL
+
+UNION ALL
+
+SELECT "order"."id" AS "case_id", 
+       'order_creation_date' AS "activity_id", 
+       CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "order"
+WHERE "order"."id" IS NOT NULL 
+  AND "order"."creation_date" IS NOT NULL
+
+UNION ALL
+
+SELECT "order"."id" AS "case_id", 
+       'payment_creation_date' AS "activity_id", 
+       CAST("payment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "payment"
+JOIN "invoice" ON "payment"."invoice_id" = "invoice"."id"
+JOIN "order" ON "invoice"."order_id" = "order"."id"
+WHERE "payment"."id" IS NOT NULL 
+  AND "payment"."invoice_id" IS NOT NULL 
+  AND "payment"."creation_date" IS NOT NULL
+
+UNION ALL
+
+SELECT "order"."id" AS "case_id", 
+       'shipment_creation_date' AS "activity_id", 
+       CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "shipment"
+JOIN "order" ON "shipment"."order_id" = "order"."id"
+WHERE "shipment"."id" IS NOT NULL 
+  AND "shipment"."order_id" IS NOT NULL 
+  AND "shipment"."creation_date" IS NOT NULL;

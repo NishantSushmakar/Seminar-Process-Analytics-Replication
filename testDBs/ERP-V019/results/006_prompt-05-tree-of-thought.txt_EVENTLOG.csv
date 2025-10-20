@@ -1,0 +1,15 @@
+case_id,activity_id,timestamp
+o1,Order Creation,2017-08-11 10:33:37
+o2,Order Creation,2017-08-13 16:18:15
+s1,Shipment Creation,2017-08-14 11:36:35
+s2,Shipment Creation,2017-08-16 14:15:31
+s3,Shipment Creation,2017-08-19 13:22:04
+o1,Order Line,2017-08-11 10:33:37
+o1,Order Line,2017-08-11 10:33:37
+o2,Order Line,2017-08-13 16:18:15
+o2,Order Line,2017-08-13 16:18:15
+s1,Shipment Line,2017-08-14 11:36:35
+s2,Shipment Line,2017-08-16 14:15:31
+s2,Shipment Line,2017-08-16 14:15:31
+s3,Shipment Line,2017-08-19 13:22:04
+s3,Shipment Line,2017-08-19 13:22:04

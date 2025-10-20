@@ -1,0 +1,9 @@
+SELECT DISTINCT "SessionID" AS "case_id", 
+                COALESCE("page_action_detail", "BPI2016_Clicks_Logged_In") AS "activity_id", 
+                CAST("ClickTimestamp" AS VARCHAR) AS "timestamp"
+FROM "BPI2016_Clicks_Logged_In"
+UNION
+SELECT DISTINCT "SessionID" AS "case_id", 
+                COALESCE("page_action_detail", "BPI2016_Clicks_NOT_Logged_In") AS "activity_id", 
+                CAST("ClickTimestamp" AS VARCHAR) AS "timestamp"
+FROM "BPI2016_Clicks_NOT_Logged_In";

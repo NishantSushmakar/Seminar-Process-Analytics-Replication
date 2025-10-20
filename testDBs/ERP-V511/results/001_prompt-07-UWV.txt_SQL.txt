@@ -1,0 +1,46 @@
+SELECT 
+    "order"."id" AS "case_id", 
+    'order_creation_date' AS "activity_id", 
+    CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM 
+    "order"
+WHERE 
+    "order"."creation_date" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "invoice"."customer" AS "case_id", 
+    'invoice_creation_date' AS "activity_id", 
+    CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp"
+FROM 
+    "invoice"
+WHERE 
+    "invoice"."creation_date" IS NOT NULL 
+    AND "invoice"."customer" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "shipment"."customer" AS "case_id", 
+    'shipment_creation_date' AS "activity_id", 
+    CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM 
+    "shipment"
+WHERE 
+    "shipment"."creation_date" IS NOT NULL 
+    AND "shipment"."customer" IS NOT NULL
+
+UNION ALL
+
+SELECT 
+    "payment_line"."invoice" AS "case_id", 
+    'payment_creation_date' AS "activity_id", 
+    CAST("payment"."creation_date" AS VARCHAR) AS "timestamp"
+FROM 
+    "payment"
+JOIN 
+    "payment_line" ON "payment"."id" = "payment_line"."payment"
+WHERE 
+    "payment"."creation_date" IS NOT NULL 
+    AND "payment_line"."invoice" IS NOT NULL

@@ -1,0 +1,16 @@
+Consider the following db schema: TABLE customer:
+CREATE TABLE "customer" ("id" TEXT, "name" TEXT, "address" TEXT, PRIMARY KEY ("id"));
+
+TABLE order:
+CREATE TABLE "order" ("id" TEXT, "creation_date" DATETIME, "customer" TEXT, PRIMARY KEY ("id"), FOREIGN KEY ("customer") REFERENCES "customer"("id"));
+
+TABLE order_line:
+CREATE TABLE "order_line" ("id" TEXT, "order" TEXT, "product" TEXT, "quantity" TEXT, "price" TEXT, PRIMARY KEY ("id"), FOREIGN KEY ("order") REFERENCES "order"("id"));
+
+TABLE shipment:
+CREATE TABLE "shipment" ("id" TEXT, "creation_date" DATETIME, "customer" TEXT, PRIMARY KEY ("id"), FOREIGN KEY ("customer") REFERENCES "customer"("id"));
+
+TABLE shipment_line:
+CREATE TABLE "shipment_line" ("id" TEXT, "shipment" TEXT, "order_line" TEXT, "quantity" TEXT, PRIMARY KEY ("id"), FOREIGN KEY ("shipment") REFERENCES "shipment"("id"), FOREIGN KEY ("order_line") REFERENCES "order_line"("id"));
+Considering the input database, write an SQL statement that generates an event log from this database with the following columns: case_id, activity_id, timestamp. 
+Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

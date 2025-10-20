@@ -1,0 +1,25 @@
+SELECT 
+    COALESCE("order"."id", "invoice"."order_id", "shipment"."order_id") AS "case_id",
+    CASE 
+        WHEN "invoice"."creation_date" IS NOT NULL THEN 'invoice_creation_date'
+        WHEN "order"."creation_date" IS NOT NULL THEN 'order_creation_date'
+        WHEN "payment"."creation_date" IS NOT NULL THEN 'payment_creation_date'
+        WHEN "shipment"."creation_date" IS NOT NULL THEN 'shipment_creation_date'
+    END AS "activity_id",
+    COALESCE("invoice"."creation_date", "order"."creation_date", "payment"."creation_date", "shipment"."creation_date") AS "timestamp"
+FROM 
+    "order"
+LEFT JOIN 
+    "invoice" ON "order"."id" = "invoice"."order_id"
+LEFT JOIN 
+    "payment" ON "invoice"."id" = "payment"."invoice_id"
+LEFT JOIN 
+    "shipment" ON "order"."id" = "shipment"."order_id"
+WHERE 
+    "order"."id" IS NOT NULL 
+    AND "invoice"."order_id" IS NOT NULL 
+    AND "shipment"."order_id" IS NOT NULL 
+    AND "invoice"."creation_date" IS NOT NULL 
+    AND "order"."creation_date" IS NOT NULL 
+    AND "payment"."creation_date" IS NOT NULL 
+    AND "shipment"."creation_date" IS NOT NULL;

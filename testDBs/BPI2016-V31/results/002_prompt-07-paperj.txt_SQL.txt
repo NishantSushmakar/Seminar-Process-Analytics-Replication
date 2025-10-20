@@ -1,0 +1,5 @@
+SELECT DISTINCT CAST("CustomerID" AS VARCHAR) AS "case_id", CAST('BPI2016_Complaints' AS VARCHAR) AS "activity_id", CAST("ComplaintDate" AS VARCHAR) AS "timestamp" FROM "BPI2016_Complaints"
+UNION
+SELECT DISTINCT CAST("CustomerID" AS VARCHAR) AS "case_id", CAST('BPI2016_Questions' AS VARCHAR) AS "activity_id", CAST("QuestionTimestampStart" AS VARCHAR) AS "timestamp" FROM "BPI2016_Questions"
+UNION
+SELECT DISTINCT CAST("CustomerID" AS VARCHAR) AS "case_id", CAST('BPI2016_Werkmap_Messages' AS VARCHAR) AS "activity_id", CAST("WerkmapTimestamp" AS VARCHAR) AS "timestamp" FROM "BPI2016_Werkmap_Messages";

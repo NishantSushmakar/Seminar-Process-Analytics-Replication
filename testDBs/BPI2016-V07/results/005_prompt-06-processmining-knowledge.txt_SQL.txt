@@ -1,0 +1,31 @@
+SELECT DISTINCT 
+    "CustomerID" AS "case_id", 
+    COALESCE("ComplaintTopic", "QuestionTopic", "BPI2016_Werkmap_Messages" || '_' || "WerkmapTimestamp") AS "activity_id", 
+    COALESCE("ComplaintDate", "QuestionTimestampStart", "WerkmapTimestamp") AS "timestamp"
+FROM 
+    "BPI2016_Complaints"
+LEFT JOIN 
+    "BPI2016_Questions" ON "BPI2016_Complaints"."CustomerID" = "BPI2016_Questions"."CustomerID"
+LEFT JOIN 
+    "BPI2016_Werkmap_Messages" ON "BPI2016_Complaints"."CustomerID" = "BPI2016_Werkmap_Messages"."CustomerID"
+UNION
+SELECT DISTINCT 
+    "CustomerID" AS "case_id", 
+    COALESCE("QuestionTopic", "BPI2016_Werkmap_Messages" || '_' || "WerkmapTimestamp") AS "activity_id", 
+    COALESCE("QuestionTimestampStart", "WerkmapTimestamp") AS "timestamp"
+FROM 
+    "BPI2016_Questions"
+LEFT JOIN 
+    "BPI2016_Werkmap_Messages" ON "BPI2016_Questions"."CustomerID" = "BPI2016_Werkmap_Messages"."CustomerID"
+WHERE 
+    "BPI2016_Questions"."CustomerID" NOT IN (SELECT "CustomerID" FROM "BPI2016_Complaints")
+UNION
+SELECT DISTINCT 
+    "CustomerID" AS "case_id", 
+    "BPI2016_Werkmap_Messages" || '_' || "WerkmapTimestamp" AS "activity_id", 
+    "WerkmapTimestamp" AS "timestamp"
+FROM 
+    "BPI2016_Werkmap_Messages"
+WHERE 
+    "BPI2016_Werkmap_Messages"."CustomerID" NOT IN (SELECT "CustomerID" FROM "BPI2016_Complaints")
+    AND "BPI2016_Werkmap_Messages"."CustomerID" NOT IN (SELECT "CustomerID" FROM "BPI2016_Questions");

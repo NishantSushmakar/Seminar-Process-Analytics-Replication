@@ -1,0 +1,7 @@
+SELECT DISTINCT "order"."id" AS "case_id", 
+                COALESCE("invoice"."id", "payment"."id", "shipment"."id", 'order') AS "activity_id", 
+                CAST(COALESCE("invoice"."creation_date", "payment"."creation_date", "shipment"."creation_date", "order"."creation_date") AS VARCHAR) AS "timestamp"
+FROM "order"
+LEFT JOIN "invoice" ON "order"."id" = "invoice"."order_id"
+LEFT JOIN "payment" ON "invoice"."id" = "payment"."invoice_id"
+LEFT JOIN "shipment" ON "order"."id" = "shipment"."order_id";

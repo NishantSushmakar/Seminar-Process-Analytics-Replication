@@ -1,0 +1,3 @@
+SELECT "CaseID" AS "case_id", "EventID" AS "activity_id", CAST("EventDateTime" AS VARCHAR) AS "timestamp" FROM "T200"
+UNION ALL
+SELECT "CaseID" AS "case_id", "EventID" AS "activity_id", CAST("EventDate" AS VARCHAR) AS "timestamp" FROM "T300";

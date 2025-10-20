@@ -1,0 +1,9 @@
+SELECT DISTINCT "order"."id" AS "case_id", 
+                COALESCE("click"."mouse_state", "configuration"."config_prop", 'invoice', 'order', 'payment', 'shipment') AS "activity_id", 
+                COALESCE("click"."creation_date", "configuration"."date", "invoice"."creation_date", "order"."creation_date", "payment"."creation_date", "shipment"."creation_date") AS "timestamp"
+FROM "order"
+LEFT JOIN "invoice" ON "order"."id" = "invoice"."order_id"
+LEFT JOIN "payment" ON "invoice"."id" = "payment"."invoice_id"
+LEFT JOIN "shipment" ON "order"."id" = "shipment"."order_id"
+LEFT JOIN "click" ON "order"."id" = "click"."customer_id"
+LEFT JOIN "configuration" ON "order"."id" = "configuration"."id";

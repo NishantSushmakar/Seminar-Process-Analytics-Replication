@@ -1,0 +1,11 @@
+SELECT DISTINCT 
+    CAST("CaseID" AS VARCHAR) AS "case_id", 
+    CAST('T200' AS VARCHAR) AS "activity_id", 
+    CAST("EventDateTime" AS VARCHAR) AS "timestamp"
+FROM "T200"
+UNION
+SELECT DISTINCT 
+    CAST("CaseID" AS VARCHAR) AS "case_id", 
+    CAST('T300' AS VARCHAR) AS "activity_id", 
+    CAST("EventDate" AS VARCHAR) AS "timestamp"
+FROM "T300";

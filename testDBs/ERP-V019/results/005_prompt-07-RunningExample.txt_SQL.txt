@@ -1,0 +1,5 @@
+SELECT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+UNION ALL
+SELECT "order"."id" AS "case_id", 'shipment' AS "activity_id", CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp" FROM "shipment" JOIN "order" ON "shipment"."customer" = "order"."customer"
+UNION ALL
+SELECT "order"."id" AS "case_id", 'shipment_line' AS "activity_id", CAST("shipment"."creation_date" AS VARCHAR) AS "timestamp" FROM "shipment_line" JOIN "shipment" ON "shipment_line"."shipment" = "shipment"."id" JOIN "order_line" ON "shipment_line"."order_line" = "order_line"."id" JOIN "order" ON "order_line"."order" = "order"."id";

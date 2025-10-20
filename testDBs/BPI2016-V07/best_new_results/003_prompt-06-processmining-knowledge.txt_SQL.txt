@@ -1,0 +1,27 @@
+SELECT DISTINCT 
+    "BPI2016_Complaints"."CustomerID" AS "case_id", 
+    "BPI2016_Complaints"."ComplaintTopic" AS "activity_id", 
+    CAST("BPI2016_Complaints"."ComplaintDate" AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Complaints"
+UNION
+SELECT DISTINCT 
+    "BPI2016_Questions"."CustomerID" AS "case_id", 
+    "BPI2016_Questions"."QuestionTopic" AS "activity_id", 
+    CAST("BPI2016_Questions"."QuestionTimestampStart" AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Questions"
+UNION
+SELECT DISTINCT 
+    "BPI2016_Questions"."CustomerID" AS "case_id", 
+    "BPI2016_Questions"."QuestionTopic" AS "activity_id", 
+    CAST("BPI2016_Questions"."QuestionTimestampEnd" AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Questions"
+UNION
+SELECT DISTINCT 
+    "BPI2016_Werkmap_Messages"."CustomerID" AS "case_id", 
+    "BPI2016_Werkmap_Messages"."EventType" AS "activity_id", 
+    CAST("BPI2016_Werkmap_Messages"."WerkmapTimestamp" AS VARCHAR) AS "timestamp"
+FROM 
+    "BPI2016_Werkmap_Messages";

@@ -1,0 +1,6 @@
+SELECT DISTINCT "order"."id" AS "case_id", 'order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "order"
+UNION
+SELECT DISTINCT "order_id" AS "case_id", 'invoice' AS "activity_id", CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp"
+FROM "invoice"
+JOIN "element_relation" ON "invoice"."order_id" = "element_relation"."order";

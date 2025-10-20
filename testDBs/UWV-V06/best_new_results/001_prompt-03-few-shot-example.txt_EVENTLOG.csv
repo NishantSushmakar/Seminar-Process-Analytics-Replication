@@ -1,0 +1,3 @@
+"SQL_ERROR: DatabaseError: Execution failed on sql 'SELECT CAST(""id"" AS VARCHAR) AS ""case_id"", CAST('order' AS VARCHAR) AS ""activity_id"", CAST(""creation_date"" AS VARCHAR) AS ""timestamp"" FROM ""Order""
+UNION ALL
+SELECT CAST(""id_order"" AS VARCHAR) AS ""case_id"", CAST('payment' AS VARCHAR) AS ""activity_id"", CAST(""creation_date"" AS VARCHAR) AS ""timestamp"" FROM ""Payment"";': no such table: Payment"

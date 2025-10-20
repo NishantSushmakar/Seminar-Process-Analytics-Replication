@@ -1,4 +1,4 @@
-from langgraph.graph import Graph
+from langgraph.graph import StateGraph
 import pandas as pd
 from utils.db import run_query_and_return_df
 from utils.metrics import dataframe_similarity
@@ -29,7 +29,9 @@ class SimpleApp():
             df = run_query_and_return_df(path_to_db = self.path_to_db, query = agent_response)
             state['sqlexecuter'] = df
         except Exception as e:
-            state['sqlexecuter'] = 'ERROR'
+            error_message = f"SQL_ERROR: {type(e).__name__}: {str(e)}"
+            state['sqlexecuter'] = error_message
+            print(f"SQL execution failed: {error_message}")
         return state
     
     def calculate_metrics(self, state):
@@ -42,7 +44,7 @@ class SimpleApp():
         
     
     def invoke(self, AgentState):
-        workflow = Graph()
+        workflow = StateGraph(dict)
         # nodes
         workflow.add_node("agent", self.get_sql_query)
         workflow.add_node("sqlexecuter", self.run_sql_query)

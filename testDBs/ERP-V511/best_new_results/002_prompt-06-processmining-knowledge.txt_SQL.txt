@@ -1,0 +1,30 @@
+SELECT DISTINCT "customer"."id" AS "case_id", 
+                "activity_id", 
+                "timestamp" 
+FROM (
+    SELECT "customer"."id", 
+           "invoice"."creation_date" AS "timestamp", 
+           "invoice"."id" AS "activity_id" 
+    FROM "customer" 
+    JOIN "invoice" ON "customer"."id" = "invoice"."customer"
+    UNION
+    SELECT "customer"."id", 
+           "order"."creation_date" AS "timestamp", 
+           "order"."id" AS "activity_id" 
+    FROM "customer" 
+    JOIN "order" ON "customer"."id" = "order"."customer"
+    UNION
+    SELECT "customer"."id", 
+           "shipment"."creation_date" AS "timestamp", 
+           "shipment"."id" AS "activity_id" 
+    FROM "customer" 
+    JOIN "shipment" ON "customer"."id" = "shipment"."customer"
+    UNION
+    SELECT "customer"."id", 
+           "payment"."creation_date" AS "timestamp", 
+           "payment"."id" AS "activity_id" 
+    FROM "customer" 
+    JOIN "invoice" ON "customer"."id" = "invoice"."customer"
+    JOIN "payment_line" ON "invoice"."id" = "payment_line"."invoice"
+    JOIN "payment" ON "payment_line"."payment" = "payment"."id"
+) AS events;

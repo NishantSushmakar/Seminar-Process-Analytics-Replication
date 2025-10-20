@@ -1,0 +1,16 @@
+SELECT DISTINCT "customer"."id" AS "case_id", 
+                "activity_id", 
+                CAST("timestamp" AS VARCHAR) AS "timestamp"
+FROM (
+    SELECT "customer"."id", 
+           "invoice"."creation_date" AS "timestamp", 
+           'invoice' AS "activity_id"
+    FROM "customer"
+    JOIN "invoice" ON "customer"."id" = "invoice"."customer"
+    UNION
+    SELECT "customer"."id", 
+           "order"."creation_date" AS "timestamp", 
+           'order' AS "activity_id"
+    FROM "customer"
+    JOIN "order" ON "customer"."id" = "order"."customer"
+) AS events;

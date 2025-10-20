@@ -1,0 +1,3 @@
+SELECT "order"."id" AS "case_id", 'create_order' AS "activity_id", CAST("order"."creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+UNION ALL
+SELECT "invoice"."order_id" AS "case_id", 'create_invoice' AS "activity_id", CAST("invoice"."creation_date" AS VARCHAR) AS "timestamp" FROM "invoice";

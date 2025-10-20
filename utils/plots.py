@@ -15,7 +15,7 @@ def plot_parallel_coordinates(path_to_dbs, db_name, metric, relaxed):
 
     for folder in os.listdir(parent_folder):
         if folder.startswith(db_name):
-            folder_path = os.path.join(parent_folder, folder, 'results')
+            folder_path = os.path.join(parent_folder, folder, 'best_new_results')
             if os.path.exists(folder_path):
                 for file in os.listdir(folder_path):
                     if file.endswith('_METRICS.txt'):
@@ -25,17 +25,21 @@ def plot_parallel_coordinates(path_to_dbs, db_name, metric, relaxed):
                         try:
                             with open(file_path, 'r') as f:
                                 file_content = f.read().strip()
-                                if file_content:
+                                if file_content and file_content != '{}':
                                     file_content = file_content.replace("'", '"')
                                     metrics = json.loads(file_content)
-                                    metric_value = metrics[relaxed + metric]
-                                    data.append({
-                                        'Folder': folder,
-                                        'Prompt': prompt_name.replace('prompt-','').replace('.txt',''),
-                                        metric: metric_value
-                                    })
+                                    metric_key = relaxed + metric
+                                    if metric_key in metrics:
+                                        metric_value = metrics[metric_key]
+                                        data.append({
+                                            'Folder': folder,
+                                            'Prompt': prompt_name.replace('prompt-','').replace('.txt',''),
+                                            metric: metric_value
+                                        })
+                                    else:
+                                        print(f"Warning: {file_path} missing key '{metric_key}'")
                                 else:
-                                    print(f"Warning: {file_path} is empty.")
+                                    print(f"Warning: {file_path} is empty or contains empty dict.")
                             f.close()
                         except json.JSONDecodeError as e:
                             print(f"Error decoding JSON in file {file_path}: {e}")
@@ -135,8 +139,14 @@ def plot_parallel_coordinates(path_to_dbs, db_name, metric, relaxed):
     ax.legend().set_visible(False)
     plt.grid(axis='y', linestyle='--', color='lightgray', zorder=-99)
 
+    # Create plots directory if it doesn't exist
+    os.makedirs('best_new_plots', exist_ok=True)
+    
+    # Save the DataFrame as CSV
+    df.to_csv('best_new_plots/' + db_name + '-plot-data-' + relaxed + metric + '.csv', index=False)
+    
     # Save the plot as a PDF file
-    plt.savefig('plots/' + db_name + '-plot-' + relaxed + metric + '.pdf', format='pdf', bbox_inches='tight')
+    plt.savefig('best_new_plots/' + db_name + '-plot-' + relaxed + metric + '.pdf', format='pdf', bbox_inches='tight')
 
     plt.show()
 
@@ -147,7 +157,7 @@ def save_result_tables(path_to_dbs, db_name, relaxed):
 
     for folder in os.listdir(parent_folder):
         if folder.startswith(db_name):
-            folder_path = os.path.join(parent_folder, folder, 'results')
+            folder_path = os.path.join(parent_folder, folder, 'best_new_results')
             if os.path.exists(folder_path):
                 for file in os.listdir(folder_path):
                     if file.endswith('_METRICS.txt'):
@@ -157,34 +167,86 @@ def save_result_tables(path_to_dbs, db_name, relaxed):
                         try:
                             with open(file_path, 'r') as f:
                                 file_content = f.read().strip()
-                                if file_content:
+                                if file_content and file_content != '{}':
                                     file_content = file_content.replace("'", '"')
                                     metrics = json.loads(file_content)
+                                    # Only add if metrics contains valid data
+                                    if metrics:
+                                        data.append({
+                                            'Database': folder,
+                                            'Prompt': prompt_name.replace('prompt-','').replace('.txt',''),
+                                            'Error': '',
+                                            'Metrics': metrics
+                                        })
+                                    else:
+                                        # Parsed but empty dict
+                                        data.append({
+                                            'Database': folder,
+                                            'Prompt': prompt_name.replace('prompt-','').replace('.txt',''),
+                                            'Error': 'NO_METRICS',
+                                            'Metrics': {}
+                                        })
+                                else:
+                                    # Empty or '{}'
+                                    print(f"Warning: {file_path} is empty or contains empty dict.")
                                     data.append({
                                         'Database': folder,
                                         'Prompt': prompt_name.replace('prompt-','').replace('.txt',''),
-                                        'Metrics': metrics
+                                        'Error': 'NO_METRICS',
+                                        'Metrics': {}
                                     })
-                                else:
-                                    print(f"Warning: {file_path} is empty.")
                             f.close()
                         except json.JSONDecodeError as e:
                             print(f"Error decoding JSON in file {file_path}: {e}")
+                            data.append({
+                                'Database': folder,
+                                'Prompt': prompt_name.replace('prompt-','').replace('.txt',''),
+                                'Error': 'JSON_DECODE_ERROR',
+                                'Metrics': {}
+                            })
                         except Exception as e:
                             print(f"Unexpected error processing file {file_path}: {e}")
+                            data.append({
+                                'Database': folder,
+                                'Prompt': prompt_name.replace('prompt-','').replace('.txt',''),
+                                'Error': f"ERROR:{type(e).__name__}",
+                                'Metrics': {}
+                            })
 
     df0 = pd.DataFrame(data)
+    print(f"Found {len(data)} metric files (including errors) for {db_name}")
+    
+    # Always write an all-runs CSV, even if empty
+    os.makedirs('best_new_plots', exist_ok=True)
+    if df0.empty:
+        # Write an empty CSV with headers
+        pd.DataFrame(columns=['Database','Prompt','Error']).to_csv('best_new_plots/' + db_name + '-table-all_runs.csv', index=False)
+        # Also write placeholder to new_plots
+        os.makedirs('new_plots', exist_ok=True)
+        pd.DataFrame(columns=['Database','Prompt','Error']).to_csv('new_plots/' + db_name + '-table.csv', index=False)
+        print(f"No metric files found for {db_name}; wrote empty CSVs.")
+        return
 
     # Put the Metrics column, which contains dicts, into a seperate dataframe
-    dfm=pd.DataFrame.from_records(df0['Metrics'].values)
-    # Combine the Metrics dataframe with the Folder+Prompt column from the original DataFrame
-    df=pd.concat([df0[['Database','Prompt']],dfm], axis=1)
+    dfm = pd.DataFrame.from_records(df0['Metrics'].values)
+    # Combine the Metrics dataframe with the Folder+Prompt+Error columns from the original DataFrame
+    df = pd.concat([df0[['Database','Prompt','Error']], dfm], axis=1)
 
-    df.to_csv('plots/' + db_name + '-table-all_runs.csv', index=False)
+    # Write the all-runs table
+    df.to_csv('best_new_plots/' + db_name + '-table-all_runs.csv', index=False)
 
     # Calculate average metric values if multiple runs have occurred
-    df = df.groupby(['Database','Prompt']).mean()
-    df.reset_index(inplace=True)
-    df.set_index('Database')
+    # Keep only numeric columns for aggregation
+    numeric_cols = df.select_dtypes(include=[float, int]).columns.tolist()
+    if numeric_cols:
+        df_agg = df.groupby(['Database','Prompt'])[numeric_cols].mean()
+        df_agg.reset_index(inplace=True)
+        df_agg.set_index('Database')
+        os.makedirs('new_plots', exist_ok=True)
+        df_agg.to_csv('new_plots/' + db_name + '-table.csv', index=False)
+    else:
+        # No numeric metrics available; write a placeholder CSV with errors only
+        os.makedirs('new_plots', exist_ok=True)
+        df[['Database','Prompt','Error']].to_csv('new_plots/' + db_name + '-table.csv', index=False)
 
-    df.to_csv('plots/' + db_name + '-table.csv', index=False)
+    return

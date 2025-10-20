@@ -1,0 +1,9 @@
+case_id,activity_id,timestamp
+o1,create_order,2017-08-11 10:33:37
+o2,create_order,2017-08-13 16:18:15
+o3,create_order,2017-08-15 22:02:53
+o4,create_order,2017-08-17 02:18:12
+o1,create_invoice,2017-08-15 09:13:27
+o2,create_invoice,2017-08-17 17:38:36
+o3,create_invoice,2017-08-19 23:03:45
+o4,create_invoice,2017-08-21 14:25:04

@@ -1,0 +1,9 @@
+SELECT "CustomerID" AS "case_id", 'Click_Logged_In' AS "activity_id", CAST("ClickTimestamp" AS VARCHAR) AS "timestamp" FROM "BPI2016_Clicks_Logged_In"
+UNION ALL
+SELECT "SessionID" AS "case_id", 'Click_NOT_Logged_In' AS "activity_id", CAST("ClickTimestamp" AS VARCHAR) AS "timestamp" FROM "BPI2016_Clicks_NOT_Logged_In"
+UNION ALL
+SELECT "CustomerID" AS "case_id", 'Complaint' AS "activity_id", CAST("ComplaintDate" AS VARCHAR) AS "timestamp" FROM "BPI2016_Complaints"
+UNION ALL
+SELECT "CustomerID" AS "case_id", 'Question' AS "activity_id", CAST("QuestionTimestampStart" AS VARCHAR) AS "timestamp" FROM "BPI2016_Questions"
+UNION ALL
+SELECT "CustomerID" AS "case_id", 'Werkmap_Message' AS "activity_id", CAST("WerkmapTimestamp" AS VARCHAR) AS "timestamp" FROM "BPI2016_Werkmap_Messages"

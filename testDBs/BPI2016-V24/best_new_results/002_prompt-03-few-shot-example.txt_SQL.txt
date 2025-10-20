@@ -1,0 +1,1 @@
+SELECT CAST("SessionID" AS VARCHAR) AS case_id, CAST('click' AS VARCHAR) AS activity_id, CAST("ClickTimestamp" AS VARCHAR) AS timestamp FROM "BPI2016_Clicks_Logged_In" UNION ALL SELECT CAST("SessionID" AS VARCHAR) AS case_id, CAST('click' AS VARCHAR) AS activity_id, CAST("ClickTimestamp" AS VARCHAR) AS timestamp FROM "BPI2016_Clicks_NOT_Logged_In";

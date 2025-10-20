@@ -1,0 +1,23 @@
+Consider the following db schema: TABLE T200:
+CREATE TABLE "T200" ("CaseID" TEXT, "EventDateTime" DATETIME, "EventID" TEXT, PRIMARY KEY ("CaseID", "EventDateTime", "EventID"));
+
+TABLE T300:
+CREATE TABLE "T300" ("CaseID" TEXT, "EventDate" TEXT, "EventID" TEXT, "Attribute_301" TEXT, PRIMARY KEY ("CaseID", "EventID"));
+
+TABLE T500:
+CREATE TABLE "T500" ("SessionID" TEXT, "CaseID" TEXT, "EventID_501" DATETIME, "EventID_502" DATETIME, "EventID_503" DATETIME, "EventID_504" DATETIME, "EventID_505" DATETIME, "EventID_506" DATETIME, "EventID_507" DATETIME, "Attribute_510" TEXT, PRIMARY KEY ("CaseID"));
+Try to use only and as much of the tables that are part of the db schema defined in the prompt.
+
+The order table, shipment table, invoice table and payment table contain events for the eventlog.
+The element_relation table, the order_line table and the shipment_line table do not contain events for the eventlog. 
+Never use the configuration table and never use the click table.
+
+If the order table is present in the db schema, then use the id as the case_id.
+If the shipment table is present in the db schema, then join the shipment table with the shipment_line table and the order_line_table. Use the "order" column from the order_line table as the case_id for the shipment events.
+If the invoice table is present in the db schema, then join the invoice table with the element_relation table. Use the "order" column from the element_relation table as the case_id for the invoice events.
+If the payment table is present in the db schema, then join the payment table with the payment_line table and the element_relation table. Use the "order" column from the element_relation table as the case_id for the payment events.
+
+Use the name of the table as the activty_id.
+Do not use the customer column as case_id.
+
+Remove duplicate records.Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.

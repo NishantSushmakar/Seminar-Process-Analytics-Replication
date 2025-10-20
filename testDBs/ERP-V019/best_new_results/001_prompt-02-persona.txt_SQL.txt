@@ -1,0 +1,3 @@
+SELECT "customer" AS "case_id", 'Order Created' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "order"
+UNION ALL
+SELECT "customer" AS "case_id", 'Shipment Created' AS "activity_id", CAST("creation_date" AS VARCHAR) AS "timestamp" FROM "shipment";

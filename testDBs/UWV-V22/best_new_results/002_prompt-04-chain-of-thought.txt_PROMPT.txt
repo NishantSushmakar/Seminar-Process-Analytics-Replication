@@ -1,0 +1,10 @@
+Consider the following db schema: TABLE T200:
+CREATE TABLE "T200" ("CaseID" TEXT, "EventDateTime" DATETIME, "EventID" TEXT, PRIMARY KEY ("CaseID", "EventDateTime", "EventID"));
+
+TABLE T300:
+CREATE TABLE "T300" ("CaseID" TEXT, "EventDate" TEXT, "EventID" TEXT, "Attribute_301" TEXT, PRIMARY KEY ("CaseID", "EventID"));
+
+TABLE T500:
+CREATE TABLE "T500" ("SessionID" TEXT, "CaseID" TEXT, "EventID_501" DATETIME, "EventID_502" DATETIME, "EventID_503" DATETIME, "EventID_504" DATETIME, "EventID_505" DATETIME, "EventID_506" DATETIME, "EventID_507" DATETIME, "Attribute_510" TEXT, PRIMARY KEY ("CaseID"));
+Considering the input database, take a deep breath, think step-by-step in silence and write an SQL statement that generates an event log from this database with the following columns: case_id, activity_id, timestamp. 
+Write one sql statement that returns an event log from the selected tables with the following columns: case_id, activity_id, timestamp. Use quotes for identifiers.Make sure that all columns of the eventlog are interpreted as varchar values.Return only the complete SQL query, leave out any other comments in the response. Return the query in plain text without markdown syntax.
